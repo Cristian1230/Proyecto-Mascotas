@@ -17,6 +17,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -94,12 +95,15 @@ public class usuarioServlet extends HttpServlet {
                 m = rs.getString("usuario");           
             }
             if (existeUser){
-                //para el usuario existente
-                //Remplazamos los atributos que luego obtendremos de las paginas jsp
-                request.setAttribute("usuario", m);              
-                //mandamos estos atributos a la pagina de bienvenida.jsp
+                        
+               //Metodo session
+                HttpSession session = request.getSession();
+                session.setAttribute("name",usuario);
+                
+                 //mandamos estos atributos a la pagina de bienvenida.jsp
                 request.getRequestDispatcher("/bienvenida.jsp").forward(request, response);    
             } else {
+            
                 //de lo contrario nos lleva la pagina errorLogin.jsp
                 request.getRequestDispatcher("/errorLogin.jsp").forward(request, response);
             }

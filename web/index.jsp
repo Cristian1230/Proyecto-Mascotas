@@ -8,7 +8,9 @@
 <%@page import="conecta.db.ConexionDB"%>
 
 <!DOCTYPE html>
-
+   <%
+    session.invalidate();
+    %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

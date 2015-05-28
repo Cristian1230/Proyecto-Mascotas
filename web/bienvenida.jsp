@@ -8,6 +8,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="conecta.db.ConexionDB"%>
 <!DOCTYPE html>
+<% 
+   String g = (String) session.getAttribute("name");
+%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -18,10 +21,7 @@
         <link rel="stylesheet" type="text/css" href="engine1/style.css" />
         <script type="text/javascript" src="engine1/jquery.js"></script>
         <!-- carrusel -->
-        <%
-            //capturamos los datos enviados desde el servlet
-            String m = (request.getAttribute("usuario")).toString();
-        %>  
+       
         <title>Bienvenido</title>
     </head>
     <body>
@@ -36,9 +36,9 @@
             <section class="top-bar-section">
 
                 <ul class="right">
-                    <li> <a style="left: 800px;">  <%= m%>  </a></li>
+                    <li> <a style="left: 800px;">  <%= g%>  </a></li>
                     <li class="has-dropdown">
-                        <a href="#">cuenta</a>
+                        <a href="#">cerrar sesion</a>
                         <ul class="dropdown">
                             <li><a href ="formulario.jsp">formulario</a></li>
                             <li  class="active"><a href="index.jsp">salir</a></li>
@@ -70,7 +70,7 @@
 
 
     <center>
-        <h1> Bienvenido: <%= m%> a love my pet</h1>
+        <h1> Bienvenido: <%= g%> a love my pet</h1>
     </center>
 
 </body>

@@ -39,6 +39,7 @@
           <div class="img_error">
          <img src="imagenes/error.jpg">
         </div>
+         
         
         <h1>Por favor vuelva a loguearse</h1>
         <a class="button round" href="login.jsp">Inicio</a>
