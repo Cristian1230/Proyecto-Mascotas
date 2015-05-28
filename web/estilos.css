@@ -1,0 +1,66 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 23/04/2015, 07:13:16 AM
+    Author     : Cristian
+*/
+body{
+    background-color: #016F6F;
+}
+
+.top-bar{
+    background-color: #000;
+}
+.right{
+    background-color: #B4B4B4;
+}
+.text{
+    text-align: center;
+    color: #ffffff;
+    width: 40%;
+    height: 100px;
+    font-family: Comic Sans MS, Arial, MS Sans Serif;
+}
+
+.registro{
+    background-color: #999999;
+    margin-left: 450px;
+    margin-top: 30px;   
+}
+.ingreso{
+    margin-left: 450px;
+    margin-top: 100px; 
+}
+.img_rotar{
+    -webkit-transform: rotate(-10deg);
+    -moz-transform: rotate(-10deg);
+    rotation: -10deg;
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+}
+.img_ado{
+    -webkit-transform: rotate(10deg);
+    -moz-transform: rotate(10deg);
+    rotation: 10deg;
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  }
+
+.olvidopass{
+    margin-left: 450px;
+    margin-top: 130px; 
+}
+
+.carru{
+   position:absolute; 
+   width: 150%;
+   height: -10px;
+   left: -350px; 
+   top: 410px
+   
+}
+
+
+
+
