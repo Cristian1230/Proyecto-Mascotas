@@ -33,12 +33,7 @@
                 <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
             </ul>
 
-            <section class="top-bar-section">
-
-                <!-- Right Nav Section -->
-                <ul class="right">
-                    <li class="active"><a href="formulario.jsp">Formulario</a></li>
-                </ul>
+            <section class="top-bar-section">                         
 
                 <%
                     ConexionDB mysql = new ConexionDB();
@@ -83,10 +78,10 @@
                 para brindarles un mejor cuidado y asi donarlos a un hogar con amor.
             </p>  
         </div> 
-        
+
         <input onclick="location.href = 'registro.jsp'" type="submit" class="button round" style="position:absolute; left:680px; top:340px;"value="Registrarse">
         <input onclick="location.href = 'login.jsp'" type="submit" class="button round" style="position:absolute; left:500px; top:340px;" value="Ingresar">
-       
+
 
         <!-- CARRUSEL-->
         <div class="carru" >

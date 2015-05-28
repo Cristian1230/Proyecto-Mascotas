@@ -4,7 +4,9 @@
     Author     : Cristian
 --%>
 
+<%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="conecta.db.ConexionDB"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,18 +14,18 @@
         <link rel="stylesheet" href="css/foundation.css" type="text/css">
         <link rel="icon" type="image/x-icon" href="imagenes/logo7.jpg"> 
         <link rel="stylesheet" type="text/css" href="estilos.css">
-          <!-- carrusel-->
+        <!-- carrusel-->
         <link rel="stylesheet" type="text/css" href="engine1/style.css" />
         <script type="text/javascript" src="engine1/jquery.js"></script>
         <!-- carrusel -->
         <%
             //capturamos los datos enviados desde el servlet
-            String m = (request.getAttribute("usuario")).toString();        
-       %>  
+            String m = (request.getAttribute("usuario")).toString();
+        %>  
         <title>Bienvenido</title>
     </head>
     <body>
-         <nav class="top-bar" data-topbar="" role="navigation">
+        <nav class="top-bar" data-topbar="" role="navigation">
             <ul class="title-area">
                 <li class="name">
                     <h1><a href="index.jsp">Inicio</a></h1>
@@ -32,17 +34,21 @@
             </ul>
 
             <section class="top-bar-section">
-                <ul class="right">
-                    <li class="active"><a href="#">Acerca</a></li>
-                </ul>
-                <ul class="right">
-                    <li class="active"><a href="#">Ayuda</a></li>
-                </ul>
 
+                <ul class="right">
+                    <li> <a style="left: 800px;">  <%= m%>  </a></li>
+                    <li class="has-dropdown">
+                        <a href="#">cuenta</a>
+                        <ul class="dropdown">
+                            <li><a href ="formulario.jsp">formulario</a></li>
+                            <li  class="active"><a href="index.jsp">salir</a></li>
+                        </ul>
+                    </li>
+                </ul>           
             </section>
         </nav>
-        
-          <!-- CARRUSEL-->
+
+        <!-- CARRUSEL-->
         <div class="carrucel" >
             <div id="wowslider-container1" >
                 <div class="ws_images"><ul>
@@ -61,12 +67,12 @@
             <script type="text/javascript" src="engine1/script.js"></script>
         </div>
         <!-- CARRUSEL-->
- 
-  
+
+
     <center>
         <h1> Bienvenido: <%= m%> a love my pet</h1>
     </center>
-        
-    </body>
-    
+
+</body>
+
 </html>
