@@ -8,45 +8,55 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="conecta.db.ConexionDB"%>
 <!DOCTYPE html>
-<% 
-   String g = (String) session.getAttribute("name");
+<%
+    String g = (String) session.getAttribute("usuario");
+    String m = (String) session.getAttribute("password");
+
 %>
+
 <html>
     <head>
+        <!-- KICKSTART -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="js/kickstart.js"></script> 
+        <link rel="stylesheet" href="css/kickstart.css" media="all" />
+        <!-- KICKSTART -->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/foundation.css" type="text/css">
         <link rel="icon" type="image/x-icon" href="imagenes/logo7.jpg"> 
         <link rel="stylesheet" type="text/css" href="estilos.css">
+        <script type="text/javascript" src="js/foundation.min.js"></script>
         <!-- carrusel-->
         <link rel="stylesheet" type="text/css" href="engine1/style.css" />
         <script type="text/javascript" src="engine1/jquery.js"></script>
         <!-- carrusel -->
-       
+
         <title>Bienvenido</title>
     </head>
-    <body>
-        <nav class="top-bar" data-topbar="" role="navigation">
-            <ul class="title-area">
-                <li class="name">
-                    <h1><a href="index.jsp">Inicio</a></h1>
+    <body style="margin:auto">
+
+        <ul class="menu">          
+            <li><a class="fa fa-home" href="index.jsp">inicio</a></li>          
+
+
+
+            <div class="fa fa-inbox" style=" margin-left:1100px;">
+
+                <li><a class="fa fa-user" href="#">cuenta</a>
+                    <ul>
+                        <li><a><i class="fa fa-folder-open"></i>formulario</a></li>
+                        <li><a href="mascotas.jsp"><i class="fa fa-paw"></i>mascotas</a></li>
+                        <li><a href="index.jsp"><i class="fa fa-envelope"></i> cerrar sesion</a></li>
+                    </ul>
                 </li>
-                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-            </ul>
+                <li> <a>  <%= g%>  </a></li>
+            </div>
 
-            <section class="top-bar-section">
+        </ul>
 
-                <ul class="right">
-                    <li> <a style="left: 800px;">  <%= g%>  </a></li>
-                    <li class="has-dropdown">
-                        <a href="#">cerrar sesion</a>
-                        <ul class="dropdown">
-                            <li><a href ="formulario.jsp">formulario</a></li>
-                            <li  class="active"><a href="index.jsp">salir</a></li>
-                        </ul>
-                    </li>
-                </ul>           
-            </section>
-        </nav>
+
+
+
 
         <!-- CARRUSEL-->
         <div class="carrucel" >

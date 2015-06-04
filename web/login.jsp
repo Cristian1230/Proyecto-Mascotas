@@ -3,71 +3,63 @@
     Created on : 12/05/2015, 11:10:55 AM
     Author     : Cristian
 --%>
+<%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="conecta.db.ConexionDB"%>
 <!DOCTYPE html>
 <html>
     <head>
+        <!-- KICKSTART -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="js/kickstart.js"></script> 
+        <link rel="stylesheet" href="css/kickstart.css" media="all" />
+        <!-- KICKSTART -->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login</title>
-        <link rel="stylesheet" href="css/foundation.css" type="text/css">
         <link rel="icon" type="image/x-icon" href="imagenes/logo7.jpg"> 
         <link rel="stylesheet" type="text/css" href="estilos.css">
     </head>
 
-    <body>
-        
-        <nav class="top-bar" data-topbar="" role="navigation">
-            <ul class="title-area">
-                <li class="name">
-                    <h1><a href="index.jsp">Inicio</a></h1>
-                </li>
-                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-            </ul>
+    <body style="margin:auto">
 
-            <section class="top-bar-section">
-                <ul class="right">
-                    <li class="active"><a href="#">Acerca</a></li>
-                </ul>
-                <ul class="right">
-                    <li class="active"><a href="#">Ayuda</a></li>
-                </ul>
+        <ul class="menu">          
+            <li><a href="index.jsp">inicio</a></li>          
+        </ul>
 
-            </section>
-        </nav>
 
         <div class="ingreso">
-            <div class="small-5 columns">
-     
-                <form action="usuarioServlet" method="post">
-                   
-                    <fieldset>
-                        <legend>Ingresar</legend>
-                        
-                     
+            <form action="usuarioServlet" method="post">
 
-                        <label style="color: #ffffff;">Usuario
-                            <input type="text" name="usuario" placeholder="Ingrese su nombre de usuario" required/>
-                        </label>
+                <fieldset  style=" height: 400px; width: 40%; left: 50px;">
+                    <legend>Ingresar</legend>
 
-                        <label style="color: #ffffff;">password
-                            <input  type="password" name="password" placeholder="Ingrese su contraseña" required/>
-                            
-                        </label>
-                        
-                        
-                        <a style="color: #ffffff;" href="olvidopassword.jsp">Olvidastes tu contraseña?</a>
+                    <label class="logi" for="text1">Usuario
                         <br>
-                        <a style="color: #ffffff;" href="registro.jsp">Registrarse?</a>
-                        
-                        <input type="submit" value="INGRESAR" class="button round" style="position:absolute; left:110px; top:290px;" />
+                        <input type="text" name="usuario" placeholder="Ingrese su usuario" required/>
 
-                    </fieldset>
-                </form>
+                        <br>
+                        <br>
+                    
+                        <label style="color: #000000;">password
+                            <br>
+                            <input  type="password" name="password" placeholder="Ingrese su contraseña" required/>       
 
-            </div>
+                            <br>
+                            <br>
+
+                            <a style="color: #000000;" href="olvidopassword.jsp">Olvidastes tu contraseña?</a>
+                            <br>
+                            
+                            <a style="color: #000000;" href="registro.jsp">Registrarse?</a>
+                        </label>
+                    </label>
+                    <input type="submit" value="INGRESAR" class="medium green" style="position:absolute; left:120px; top:300px;">
+
+                </fieldset>
+
+            </form>
+
         </div>
-      
-
 
 
     </body>

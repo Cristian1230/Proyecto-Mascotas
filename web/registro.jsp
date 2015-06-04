@@ -4,10 +4,17 @@
     Author     : Cristian
 --%>
 
+<%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="conecta.db.ConexionDB"%>
 <!DOCTYPE html>
 <html>
     <head>
+        <!-- KICKSTART -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="js/kickstart.js"></script> 
+        <link rel="stylesheet" href="css/kickstart.css" media="all" />
+        <!-- KICKSTART -->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registro</title>
         <link rel="stylesheet" href="css/foundation.css" type="text/css">
@@ -15,55 +22,51 @@
         <link rel="stylesheet" type="text/css" href="estilos.css">       
     </head>
 
-    <body>
-        <nav class="top-bar" data-topbar="" role="navigation">
-            <ul class="title-area">
-                <li class="name">
-                    <h1><a href="index.jsp">Inicio</a></h1>
-                </li>
-                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-            </ul>
+    <body style="margin:auto">
 
-            <section class="top-bar-section">
-                <ul class="right">
-                    <li class="active"><a href="#">Acerca</a></li>
-                </ul>
-                <ul class="right">
-                    <li class="active"><a href="#">Ayuda</a></li>
-                </ul>
+        <ul class="menu">          
+            <li><a href="index.jsp">inicio</a></li>          
+            <li ><a class="active" href="#" style="left: 1130px;">Acerca</a></li>  
+            <li ><a class="active" href="#" style="left: 1130px;" >Ayuda</a></li>
+        </ul>
 
-            </section>
-        </nav>
 
-        <div class="registro">
-            <div class="small-5 columns">
+        <div class="registro"   >
 
-                <form>
-                    <fieldset>
-                        <legend>Registro</legend>
-                  
-                        <label style="color: #ffffff;">Nombre Usuario
-                            <input type="text" placeholder="Ingrese su nombre completo">
-                        </label>                                                   
 
-                        <label style="color: #ffffff;">Email
-                            <input type="text" placeholder="Ingrese su nombre con el que ingresara">
+            <form style="height: 0;" >
+                <fieldset  style="height: 400px; width: 40%; left: 50px;  top:50px;">
+                    <legend>Registro</legend>
+
+                    <label  class="regis" style="color: #000000;">Nombre usuario
+                        <br>
+                        <input type="text" name="usuario" placeholder="Ingrese su nombre" required/>
+                        <br>
+                        <br>
+                        <label  style="color: #000000;">Email
+                            <br>
+                            <input type="text"  placeholder="Ingrese su correo" required/>                                           
                         </label>
-
-                        <label  style="color: #ffffff;">Contraseña
-                            <input type="password" placeholder="Ingrese su contraseña">
+                        <br>
+                        <br>
+                        <label  style="color: #000000;">Contraseña
+                            <br>
+                            <input type="password"  placeholder="Ingrese su contraseña" required/> 
                         </label>
+                        <br>
+                        <br>
+                        <label  style="color: #000000;">Confimar Contraseña
+                            <br>
+                            <input type="password"  placeholder="confirme su contraseña" required/> 
 
-                        <label style="color: #ffffff;">Confimar Contraseña
-                            <input type="password" placeholder="confirme su contraseña">
                         </label>
-                        
-                         <input onclick="location.href = 'index.jsp'" class="button radius" type="submit" value="GUARDAR" style="position:absolute; left:120px; top:420px;"/>
+                    </label>
+                    <input onclick="location.href = 'index.jsp'" class="medium green" type="submit" value="GUARDAR" style="position:absolute; left:120px; top:335px;"/>
 
-                    </fieldset>
-                </form>
-            </div>
+                </fieldset>
+            </form>
         </div>
+
 
 
     </body>

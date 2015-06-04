@@ -7,9 +7,7 @@ and open the template in the editor.
     Created on : 23/04/2015, 07:13:16 AM
     Author     : Cristian
 */
-body{
-    background-color: #016F6F;
-}
+body{background-image:url("imagenes/imagen.jpg")}
 
 .top-bar{
     background-color: #000;
@@ -33,6 +31,7 @@ body{
 .ingreso{
     margin-left: 450px;
     margin-top: 100px; 
+    margin-height: 100px;
 }
 .img_rotar{
     -webkit-transform: rotate(-10deg);
@@ -45,7 +44,7 @@ body{
     -moz-transform: rotate(10deg);
     rotation: 10deg;
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
-  }
+}
 
 .olvidopass{
     margin-left: 450px;
@@ -53,14 +52,32 @@ body{
 }
 
 .carru{
-   position:absolute; 
-   width: 150%;
-   height: -10px;
-   left: -350px; 
-   top: 410px
-   
+    position:absolute; 
+    width: 150%;
+    height: -10px;
+    left: -350px; 
+    top: 430px
+
 }
 
+.logi{
+    margin-left: 60px;
+    top: 50px;
+}
+
+.regis{
+    margin-top: 30px;
+    margin-left: 60px;
+}
+
+.tabla{
+    position: absolute;
+    height: 400px; 
+    width: 40%; 
+    left: 400px; 
+    margin-top: 50px;
+    color: #ffffff
+}
 
 
 

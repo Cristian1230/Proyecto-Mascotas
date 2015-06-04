@@ -8,14 +8,18 @@
 <%@page import="conecta.db.ConexionDB"%>
 
 <!DOCTYPE html>
-   <%
+<%
     session.invalidate();
-    %>
+%>
 <html>
     <head>
+        <!-- KICKSTART -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="js/kickstart.js"></script> 
+        <link rel="stylesheet" href="css/kickstart.css" media="all" />
+        <!-- KICKSTART -->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Inicio</title>
-        <link rel="stylesheet" href="css/foundation.css" type="text/css">
         <link rel="icon" type="image/x-icon" href="imagenes/logo7.jpg"> 
         <link rel="stylesheet" type="text/css" href="estilos.css">
         <!-- carrusel-->
@@ -27,52 +31,38 @@
     <body style="margin:auto">
 
 
-        <nav class="top-bar" data-topbar="" role="navigation">
-            <ul class="title-area">
-                <li class="name">
-                    <h1><a href="index.jsp">Inicio</a></h1>
-                </li>
-                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-            </ul>
+        <ul class="menu">
+            <%
+                ConexionDB mysql = new ConexionDB();
+                Connection cn = mysql.Conectar();
 
-            <section class="top-bar-section">                         
+                String confir = "No conectado";
 
-                <%
-                    ConexionDB mysql = new ConexionDB();
-                    Connection cn = mysql.Conectar();
+                if (cn != null) {
 
-                    String confir = "No conectado";
+                    confir = "Conectado";
+                }
 
-                    if (cn != null) {
+            %>
 
-                        confir = "Conectado";
-                    }
+            <li ><a class="fa fa-home" href="">inicio</a></li>        
+            <button type="button" onclick="alert('<%= confir%>')"  >Conectar!</button>         
 
-                %>
+            <li ><a class="active" href="#" style="left: 1000px;">Acerca</a></li>  
+            <li ><a class="active" href="#" style="left: 1000px;" >Ayuda</a></li>
 
-                <button type="button" onclick="alert('<%= confir%>')">Conectar!</button>
+        </ul>
 
-
-                <ul class="right">
-                    <li class="active"><a href="#">Acerca</a></li>
-                </ul>
-                <ul class="right">
-                    <li class="active"><a href="#">Ayuda</a></li>
-                </ul>
-            </section>
-        </nav>
-
-        <p><img src="imagenes/logo9.png" style="position:absolute; left:530px; top:30px;" width="250" height="200" alt="logo8"></p>
-
+        <p><img src="imagenes/logo9.png" style="position:absolute; left:510px; top:50px;" width="270" height="250" alt="logo8"></p>
 
         <div class="img_rotar">
-            <img src="imagenes/pg.jpg" style="position:absolute; left:10px; top:-50px;" width="320" border="4">
+            <img src="imagenes/pg.jpg" style="position:absolute; left:10px; top:-40px;" width="320" border="4">
         </div>
         <div class="img_ado">
-            <img src="imagenes/ad.jpg" style="position:absolute; left:1020px; top:-50px;" width="300">
+            <img src="imagenes/ad.jpg" style="position:absolute; left:1020px; top:-40px;" width="300">
         </div>
 
-        <div class="text" style="position:absolute; left:400px; top:220px;">
+        <div class="text" style="position:absolute; left:390px; top:250px;">
             <p>
                 Bienvenios a la pagina donde todos amamos nuestros animales
                 aca encontraremos hermosos animales con busca de un hogar
@@ -81,8 +71,8 @@
             </p>  
         </div> 
 
-        <input onclick="location.href = 'registro.jsp'" type="submit" class="button round" style="position:absolute; left:680px; top:340px;"value="Registrarse">
-        <input onclick="location.href = 'login.jsp'" type="submit" class="button round" style="position:absolute; left:500px; top:340px;" value="Ingresar">
+        <input onclick="location.href = 'registro.jsp'" type="submit" class="blue" style="position:absolute; left:670px; top:375px;"value="Registrarse">
+        <input onclick="location.href = 'login.jsp'" type="submit" class="blue" style="position:absolute; left:520px; top:375px;" value="Ingresar">
 
 
         <!-- CARRUSEL-->
