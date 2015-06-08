@@ -8,11 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="conecta.db.ConexionDB"%>
 <!DOCTYPE html>
-<%
-    String g = (String) session.getAttribute("usuario");
-    String m = (String) session.getAttribute("password");
 
-%>
 
 <html>
     <head>
@@ -25,7 +21,6 @@
         <link rel="stylesheet" href="css/foundation.css" type="text/css">
         <link rel="icon" type="image/x-icon" href="imagenes/logo7.jpg"> 
         <link rel="stylesheet" type="text/css" href="estilos.css">
-        <script type="text/javascript" src="js/foundation.min.js"></script>
         <!-- carrusel-->
         <link rel="stylesheet" type="text/css" href="engine1/style.css" />
         <script type="text/javascript" src="engine1/jquery.js"></script>
@@ -33,28 +28,30 @@
 
         <title>Bienvenido</title>
     </head>
+    <%
+        String g = (String) session.getAttribute("name");
+    %>
+
+
     <body style="margin:auto">
 
         <ul class="menu">          
             <li><a class="fa fa-home" href="index.jsp">inicio</a></li>          
 
 
-
             <div class="fa fa-inbox" style=" margin-left:1100px;">
 
                 <li><a class="fa fa-user" href="#">cuenta</a>
                     <ul>
-                        <li><a><i class="fa fa-folder-open"></i>formulario</a></li>
+                        <li><a href="formulario-mascota.jsp"><i class="fa fa-folder-open"></i>formulario de mascotas</a></li>
                         <li><a href="mascotas.jsp"><i class="fa fa-paw"></i>mascotas</a></li>
-                        <li><a href="index.jsp"><i class="fa fa-envelope"></i> cerrar sesion</a></li>
+                        <li><a href="index.jsp"><i class="fa fa-power-off"></i> cerrar sesion</a></li>
                     </ul>
                 </li>
                 <li> <a>  <%= g%>  </a></li>
             </div>
 
         </ul>
-
-
 
 
 

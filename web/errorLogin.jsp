@@ -16,7 +16,6 @@
         <link rel="stylesheet" href="css/kickstart.css" media="all" />
         <!-- KICKSTART -->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/foundation.css" type="text/css">
         <link rel="icon" type="image/x-icon" href="imagenes/logo7.jpg"> 
         <link rel="stylesheet" type="text/css" href="estilos.css">
         <title>Error</title>

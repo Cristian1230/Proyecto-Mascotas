@@ -4,52 +4,42 @@
     Author     : Cristian
 --%>
 
+<%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="conecta.db.ConexionDB"%>
 <!DOCTYPE html>
 <html>
     <head>
+          <!-- KICKSTART -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="js/kickstart.js"></script> 
+        <link rel="stylesheet" href="css/kickstart.css" media="all" />
+        <!-- KICKSTART -->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>password</title>
-        <link rel="stylesheet" href="css/foundation.css" type="text/css">
         <link rel="icon" type="image/x-icon" href="imagenes/logo7.jpg"> 
         <link rel="stylesheet" type="text/css" href="estilos.css">
     </head>
     
-    <body>
-        
-             <nav class="top-bar" data-topbar="" role="navigation">
-            <ul class="title-area">
-                <li class="name">
-                    <h1><a href="index.jsp">Inicio</a></h1>
-                </li>
-                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-            </ul>
+ <body style="margin:auto">
 
-            <section class="top-bar-section">
-                <ul class="right">
-                    <li class="active"><a href="#">Acerca</a></li>
-                </ul>
-                <ul class="right">
-                    <li class="active"><a href="#">Ayuda</a></li>
-                </ul>
-
-            </section>
-        </nav>
+        <ul class="menu">          
+            <li><a href="index.jsp">inicio</a></li>          
+        </ul>
         
                
-        <div class="olvidopass">
-            <div class="small-5 columns">
+         <div class="ingreso">
+            <form action="usuarioServlet" method="post">
 
-                <form>
-                    <fieldset>
-                        <legend>Enviar</legend>
+                <fieldset  style=" height: 200px; width: 30%; left: 50px;">
+                    <legend>Recuperar contraseña</legend>
 
-                        <label style="color: #ffffff;">Ingrese correo
-                            <input type="email" placeholder="Ingrese su correo electronico" required/>
-                        </label>
+                    <label style="top: 20px; left: 30px">Correo
+                        <br>
+                        <input  type="text" name="usuario" placeholder="Ingrese su correo" required/>
+                    </label>
                        
-                       
-                        <input type="submit" value="ENVIAR" class="button round" style="position:absolute; left:110px; top:200px;" />
+                        <input type="submit" value="ENVIAR" class="medium green" style="position:absolute; left:90px; top:120px;" />
 
                     </fieldset>
                 </form>

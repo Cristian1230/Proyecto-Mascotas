@@ -20,6 +20,7 @@
         <!-- KICKSTART -->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Inicio</title>
+        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
         <link rel="icon" type="image/x-icon" href="imagenes/logo7.jpg"> 
         <link rel="stylesheet" type="text/css" href="estilos.css">
         <!-- carrusel-->
