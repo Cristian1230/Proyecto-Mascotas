@@ -26,19 +26,19 @@
     <%
         String g = (String) session.getAttribute("name");
     %>
-    <body style="margin:auto">
+  <body style="margin:auto">
+
         <ul class="menu">          
             <li><a class="fa fa-home" href="index.jsp">inicio</a></li>          
 
 
-
-            <div class="fa fa-inbox" style=" margin-left:1100px;">
+            <div class="fa fa-inbox" style=" margin-left:1090px;">
 
                 <li><a class="fa fa-user" href="#">cuenta</a>
                     <ul>
-                        <li><a><i class="fa fa-folder-open"></i>formulario</a></li>
+                        <li><a href="formulario-mascota.jsp"><i class="fa fa-folder-open"></i>formulario de mascotas</a></li>
                         <li><a href="mascotas.jsp"><i class="fa fa-paw"></i>mascotas</a></li>
-                        <li><a href="index.jsp"><i class="fa fa-envelope"></i> cerrar sesion</a></li>
+                        <li><a href="index.jsp"><i class="fa fa-power-off"></i> cerrar sesion</a></li>
                     </ul>
                 </li>
                 <li> <a>  <%= g%>  </a></li>

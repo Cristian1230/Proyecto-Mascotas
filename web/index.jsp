@@ -57,10 +57,10 @@
         <p><img src="imagenes/logo9.png" style="position:absolute; left:510px; top:50px;" width="270" height="250" alt="logo8"></p>
 
         <div class="img_rotar">
-            <img src="imagenes/pg.jpg" style="position:absolute; left:10px; top:-40px;" width="320" border="4">
+            <img src="imagenes/pg.jpg"  width="320" border="4">
         </div>
         <div class="img_ado">
-            <img src="imagenes/ad.jpg" style="position:absolute; left:1020px; top:-40px;" width="300">
+            <img src="imagenes/ad.jpg"  width="300">
         </div>
 
         <div class="text" style="position:absolute; left:390px; top:250px;">

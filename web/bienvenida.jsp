@@ -52,22 +52,26 @@
             </div>
 
         </ul>
-
-
-
+        <div  style="color: #ffffff">
+            <center>
+                <h1> Bienvenido: <%= g%> a love my pet</h1>
+            </center>
+        </div>
         <!-- CARRUSEL-->
-        <div class="carrucel" >
-            <div id="wowslider-container1" >
+        <div class="carrucel">
+            <div id="wowslider-container1">
                 <div class="ws_images"><ul>
-                        <li><img src="data1/images/noalmaltratoanimal.jpg" alt="" title="" id="wows1_0"/></li>
-                        <li><a href="http://wowslider.com"><img src="data1/images/portada.jpg" alt="simple jquery slider" title="" id="wows1_1"/></a></li>
-                        <li><img src="data1/images/catdoggrooming960x360.jpg" alt="ADOPTAME" title="ADOPTAME" id="wows1_2"/></li>
+                        <li><img src="data1/images/mascotaadpo.jpg" alt="Gracias por su visita" title="Gracias por su visita" id="wows1_0"/></li>
+                        <li><img src="data1/images/noalmaltratoanimal.jpg" alt="" title="" id="wows1_1"/></li>
+                        <li><a href="http://wowslider.com/vi"><img src="data1/images/portada.jpg" alt="content slider" title="" id="wows1_2"/></a></li>
+                        <li><img src="data1/images/catdoggrooming960x360.jpg" alt="Adoptame" title="Adoptame" id="wows1_3"/></li>
                     </ul></div>
                 <div class="ws_bullets"><div>
-                        <a href="#" title=""><span><img src="data1/tooltips/noalmaltratoanimal.jpg" alt=""/>1</span></a>
-                        <a href="#" title=""><span><img src="data1/tooltips/portada.jpg" alt=""/>2</span></a>
-                        <a href="#" title="ADOPTAME"><span><img src="data1/tooltips/catdoggrooming960x360.jpg" alt="ADOPTAME"/>3</span></a>
-                    </div></div><div class="ws_script" style="position:absolute;left:-99% "><a href="http://wowslider.com/vi">jquery image slider</a> by WOWSlider.com v8.0</div>
+                        <a href="#" title="Gracias por su visita"><span><img src="data1/tooltips/mascotaadpo.jpg" alt="Gracias por su visita"/>1</span></a>
+                        <a href="#" title=""><span><img src="data1/tooltips/noalmaltratoanimal.jpg" alt=""/>2</span></a>
+                        <a href="#" title=""><span><img src="data1/tooltips/portada.jpg" alt=""/>3</span></a>
+                        <a href="#" title="Adoptame"><span><img src="data1/tooltips/catdoggrooming960x360.jpg" alt="Adoptame"/>4</span></a>
+                    </div></div><div class="ws_script" style="position:absolute;left:-99%"><a href="http://wowslider.com/vi">image slider jquery</a> by WOWSlider.com v8.0</div>
                 <div class="ws_shadow"></div>
             </div>	
             <script type="text/javascript" src="engine1/wowslider.js"></script>
@@ -76,10 +80,8 @@
         <!-- CARRUSEL-->
 
 
-    <center>
-        <h1> Bienvenido: <%= g%> a love my pet</h1>
-    </center>
 
-</body>
+
+    </body>
 
 </html>

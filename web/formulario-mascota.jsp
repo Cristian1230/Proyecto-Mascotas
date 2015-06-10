@@ -19,13 +19,28 @@
         <link rel="icon" type="image/x-icon" href="imagenes/logo7.jpg"> 
         <link rel="stylesheet" type="text/css" href="estilos.css">
     </head>
+    <%
+        String g = (String) session.getAttribute("name");
+    %>
 
+    <body style="margin:auto">
 
- <body style="margin:auto">
         <ul class="menu">          
-            <li><a href="index.jsp">inicio</a></li>          
-            <li ><a class="active" href="#" style="left: 1130px;">Acerca</a></li>  
-            <li ><a class="active" href="#" style="left: 1130px;" >Ayuda</a></li>
+            <li><a class="fa fa-home" href="index.jsp">inicio</a></li>          
+
+
+            <div class="fa fa-inbox" style=" margin-left:1080px;">
+
+                <li><a class="fa fa-user" href="#">cuenta</a>
+                    <ul>
+                        <li><a href="formulario-mascota.jsp"><i class="fa fa-folder-open"></i>formulario de mascotas</a></li>
+                        <li><a href="mascotas.jsp"><i class="fa fa-paw"></i>mascotas</a></li>
+                        <li><a href="index.jsp"><i class="fa fa-power-off"></i> cerrar sesion</a></li>
+                    </ul>
+                </li>
+                <li> <a>  <%= g%>  </a></li>
+            </div>
+
         </ul>
 
         <div class="registro">
