@@ -10,11 +10,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-          <!-- KICKSTART -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script src="js/kickstart.js"></script> 
-        <link rel="stylesheet" href="css/kickstart.css" media="all" />
-        <!-- KICKSTART -->
+          <!-- bootstrap-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <!-- bootstrap-->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>password</title>
         <link rel="icon" type="image/x-icon" href="imagenes/logo7.jpg"> 
@@ -23,23 +25,27 @@
     
  <body style="margin:auto">
 
-        <ul class="menu">          
-            <li><a href="index.jsp">inicio</a></li>          
-        </ul>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid"> 
+                <div class="navbar-header">
+                    <a class="navbar-brand"  href="index.jsp">inicio</a>
+                </div>
+            </div>
+        </nav>
         
                
-         <div class="ingreso">
+         <div class="ingreso2">
             <form action="usuarioServlet" method="post">
 
-                <fieldset  style=" height: 200px; width: 30%; left: 50px;">
-                    <legend>Recuperar contraseña</legend>
-
-                    <label style="top: 20px; left: 30px">Correo
-                        <br>
-                        <input  type="text" name="usuario" placeholder="Ingrese su correo" required/>
-                    </label>
+                <fieldset  style=" height:90px; width: 30%; left: 50px;">
+                    <legend style=" color: #ffffff;" >Recuperar contraseña</legend>
                        
-                        <input type="submit" value="ENVIAR" class="medium green" style="position:absolute; left:90px; top:120px;" />
+                    <label style="left: 25px; color: #ffffff;" class="col-lg-9 control-label" for="text1">Correo
+                        <br>
+                        <input type="text" class="form-control" name="usuario" placeholder="Ingrese su correo" required/>
+                    </label>
+                   
+                        <input type="submit" value="ENVIAR" class="btn btn-success" style="position:absolute; left:620px; top:310px;" />
 
                     </fieldset>
                 </form>

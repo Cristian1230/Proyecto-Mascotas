@@ -12,11 +12,13 @@
 
 <html>
     <head>
-        <!-- KICKSTART -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script src="js/kickstart.js"></script> 
-        <link rel="stylesheet" href="css/kickstart.css" media="all" />
-        <!-- KICKSTART -->
+        <!-- bootstrap-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <!-- bootstrap-->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Formulario</title>
         <link rel="icon" type="image/x-icon" href="imagenes/logo7.jpg"> 
@@ -26,92 +28,100 @@
     <%
         String g = (String) session.getAttribute("name");
     %>
-  <body style="margin:auto">
+    <body style="margin:auto">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
 
-        <ul class="menu">          
-            <li><a class="fa fa-home" href="index.jsp">inicio</a></li>          
 
-
-            <div class="fa fa-inbox" style=" margin-left:1090px;">
-
-                <li><a class="fa fa-user" href="#">cuenta</a>
-                    <ul>
-                        <li><a href="formulario-mascota.jsp"><i class="fa fa-folder-open"></i>formulario de mascotas</a></li>
-                        <li><a href="mascotas.jsp"><i class="fa fa-paw"></i>mascotas</a></li>
-                        <li><a href="index.jsp"><i class="fa fa-power-off"></i> cerrar sesion</a></li>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand"  href="index.jsp">inicio</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav" style="margin-left: 1090px;">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cuenta <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="formulario-mascota.jsp">formulario de mascotas</a></li>
+                                <li><a href="mascotas.jsp">Mascotas</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="index.jsp">Cerrar sesion</a></li>                         
+                            </ul>
+                        </li>
                     </ul>
-                </li>
-                <li> <a>  <%= g%>  </a></li>
+                    <li <a class="btn btn-link" style="margin-top: 8px;">  <%= g%>  </a></li>
+                </div>
             </div>
+        </nav>
 
-        </ul>
+            <div class="container">
+        <table class=" table table-striped table-hover ">
+            <thead>
+                <tr class="active">
+                    <th>usuario</th>
+                    <th>Tipo</th>
+                    <th>Nombre</th>
+                    <th>Raza</th>
+                    <th>Edad</th>
+                </tr>
+            </thead>
 
-            <div class="tabla" >
-            <table cellspacing="0" cellpadding="0" >
-                <thead><tr>
-                        <th>usuario</th>
-                        <th>Tipo</th>
-                        <th>Nombre</th>
-                        <th>Raza</th>
-                        <th>Edad</th>
-                    </tr></thead>
-
-
-                <%
-                    try {
-                        boolean buscar = false;
-
-                        String usuario = "";
-                        String tipo = "";
-                        String nombre = "";
-                        String raza = "";
-                        String edad = "";
-
-                        ConexionDB sqlite = new ConexionDB();
-                        java.sql.Connection cn = sqlite.Conectar();
-                        Statement st = cn.createStatement();
-                        ResultSet rs;
-
-                        String consulta = "Select * from vistamascota where usuario='" + g + "' ;";
-
-                        rs = st.executeQuery(consulta);
-
-                        while (rs.next()) {
-                            usuario = rs.getString(1);
-                            tipo = rs.getString(2);
-                            nombre = rs.getString(3);
-                            raza = rs.getString(4);
-                            edad = rs.getString(5);
-                            buscar = true;
-
-                %>
-                <tbody>
-                    <tr>
-                        <td><%= usuario%></td>
-                        <td><%= tipo%></td>
-                        <td><%= nombre%></td>
-                        <td><%= raza%></td>
-                        <td><%= edad%></td>
-                    </tr>      
                     <%
-                            }
+                        try {
+                            boolean buscar = false;
 
-                            if (buscar) {
+                            String usuario = "";
+                            String tipo = "";
+                            String nombre = "";
+                            String raza = "";
+                            String edad = "";
 
-                            } else {
+                            ConexionDB sqlite = new ConexionDB();
+                            java.sql.Connection cn = sqlite.Conectar();
+                            Statement st = cn.createStatement();
+                            ResultSet rs;
 
-                            }
-                            out.close();
-                        } catch (SQLException ex) {
-                            out.println(ex.toString());
-                        }
+                            String consulta = "Select * from vistamascota where usuario='" + g + "' ;";
+
+                            rs = st.executeQuery(consulta);
+
+                            while (rs.next()) {
+                                usuario = rs.getString(1);
+                                tipo = rs.getString(2);
+                                nombre = rs.getString(3);
+                                raza = rs.getString(4);
+                                edad = rs.getString(5);
+                                buscar = true;
 
                     %>
-                </tbody>
+                    <tbody>
+                        <tr>
+                            <td><%= usuario%></td>
+                            <td><%= tipo%></td>
+                            <td><%= nombre%></td>
+                            <td><%= raza%></td>
+                            <td><%= edad%></td>
+                        </tr>      
+                        <%
+                                }
 
-            </table>
+                                if (buscar) {
 
-        </div>
+                                } else {
+
+                                }
+                                out.close();
+                            } catch (SQLException ex) {
+                                out.println(ex.toString());
+                            }
+
+                        %>
+                    </tbody>
+
+                </table>
+
+            </div>
 
 
 

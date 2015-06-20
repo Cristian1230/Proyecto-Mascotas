@@ -28,36 +28,50 @@ body{
 
 .registro{
     background-color: #999999;
-    margin-left: 450px;
-    margin-top: 30px;   
+    margin-left: 500px;
+    margin-top: 60px;   
 }
 .ingreso{
-    margin-left: 450px;
-    margin-top: 100px; 
-    margin-height: 100px;
+    margin-left: 500px;
+    margin-top: 110px; 
+    margin-height: 150px;
+}
+.ingreso2{
+    margin-left: 550px;
+    margin-top: 130px; 
+    margin-height: 150px;
 }
 .img_rotar{
-   
     position:absolute;
-    margin-left: 25px;
-    margin-top:70px;
-    -webkit-box-shadow: 1px 2px 30px 10px #305AFF;
+    margin-left: 30px;
+    margin-top: 30px;
+    border: #000 5px solid;
+     -webkit-box-shadow: 1px 2px 30px 10px #305AFF;
     box-shadow: 1px 2px 30px 10px #305AFF;
     -webkit-transform: rotate(-10deg);
-    -moz-transform: rotate(-10deg);
-    rotation: -10deg;
+    -moz-transform: rotate(5deg);
+    rotation: 10deg;
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+    
 }
 .img_ado{
-      position:absolute;
+    position:absolute;
     margin-left: 980px;
-    margin-top:60px;
-     -webkit-box-shadow: 1px 2px 30px 10px #305AFF;
+    margin-top:20px;
+    -webkit-box-shadow: 1px 2px 30px 10px #305AFF;
     box-shadow: 1px 2px 30px 10px #305AFF;
     -webkit-transform: rotate(10deg);
     -moz-transform: rotate(10deg);
     rotation: 10deg;
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+}
+
+.ima_error{
+    position: absolute;
+     margin-left: 530px;
+    top:100px;
+    -webkit-box-shadow: 2px 2px 22px 12px #FF0808;
+    box-shadow: 2px 2px 22px 12px #FF0808;
 }
 
 .olvidopass{
@@ -67,15 +81,16 @@ body{
 
 .carru{
     position:absolute; 
-   -webkit-box-shadow: 1px 2px 30px 10px #EAEDFF;
-box-shadow: 1px 2px 30px 10px #EAEDFF;
-    margin-left: 200px; 
+    -webkit-box-shadow: 1px 2px 30px 10px #EAEDFF;
+    box-shadow: 1px 2px 30px 10px #EAEDFF;
+    margin-left: 190px; 
     top: 430px
-    
+
 }
 .carrucel{
     position: absolute;
     margin-left: 200px;
+    top: 180px;
     -webkit-box-shadow: 1px 2px 30px 20px #305AFF;
     box-shadow: 1px 2px 30px 20px #305AFF;
 }
