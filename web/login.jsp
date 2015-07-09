@@ -23,40 +23,45 @@
     </head>
 
     <body style="margin:auto">
-        <nav class="navbar navbar-default">
-            <div class="container-fluid"> 
-                <div class="navbar-header">
-                    <a class="navbar-brand"  href="index.jsp">inicio</a>
-                </div>
+        <div class="container">
+
+            <div class="menuu">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid"> 
+                        <div class="navbar-header">
+                            <a class="navbar-brand"  href="index.jsp">inicio</a>
+                        </div>
+                    </div>
+                </nav>
             </div>
-        </nav>
-   
-        <div class="ingreso">
-            <form action="usuarioServlet" method="post">
 
-                <fieldset  style=" height: 400px; width: 40%; left: 50px;">
-                    <legend style="color: #ffffff;">Ingresar</legend>
-                    <br>
-                    <label style="left: 40px; color: #ffffff;" class="col-lg-9 control-label" for="text1">Usuario
-                        <br>
-                        <input type="text" class="form-control" name="usuario" placeholder="Ingrese su usuario" required/>
-                    </label>
-                    <label style="left: 40px; color: #ffffff;" class="col-lg-9 control-label" >password
-                        <br>
-                        <input type="password" class="form-control" name="password" placeholder="Ingrese su contraseña" required/>
-                        <br>
-                        <a style="color: #ffffff;" href="olvidopassword.jsp">Olvidastes tu contraseña?</a>
-                        <br>
-                        <a style="color: #ffffff;" href="registro.jsp">Registrarse?</a>                  
-                    </label>
-      
-                    <input type="submit" value="INGRESAR" class="btn btn-success" style="position:absolute; left:610px; top:440px;">
-                    
+            <div class="ingreso">
+                <form action="usuarioServlet" method="post">
 
-                </fieldset>
+                    <fieldset  style=" height: 400px; width: 40%; left: 50px;">
+                        <legend style="color: #ffffff;">Ingresar</legend>
+                        <br>
+                        <label style="left: 40px; color: #ffffff;" class="col-lg-9 control-label" for="text1">Usuario
+                            <br>
+                            <input type="text" class="form-control" name="usuario" placeholder="Ingrese su usuario" required/>
+                        </label>
+                        <label style="left: 40px; color: #ffffff;" class="col-lg-9 control-label" >password
+                            <br>
+                            <input type="password" class="form-control" name="password" placeholder="Ingrese su contraseña" required/>
+                            <br>
+                            <a style="color: #ffffff;" href="olvidopassword.jsp">Olvidastes tu contraseña?</a>
+                            <br>
+                            <a style="color: #ffffff;" href="registro.jsp">Registrarse?</a>                  
+                        </label>
 
-            </form>
+                        <input type="submit" value="INGRESAR" class="btn btn-success" style="position:absolute; left:610px; top:450px;">
 
+
+                    </fieldset>
+
+                </form>
+
+            </div>
         </div>
     </body>
 </html>

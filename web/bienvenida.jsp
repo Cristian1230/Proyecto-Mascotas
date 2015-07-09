@@ -35,7 +35,8 @@
         <title>Bienvenido</title>
     </head>
     <%
-        String g = (String) session.getAttribute("name");
+        String g = (String) session.getAttribute("usuario");
+        String email = (String) session.getAttribute("email");
     %>
 
 
@@ -57,17 +58,17 @@
                                 <li><a href="formulario-mascota.jsp">formulario de mascotas</a></li>
                                 <li><a href="mascotas.jsp">Mascotas</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="index.jsp">Cerrar sesion</a></li>                         
+                                <li><a href="cerrarsession.jsp" >Cerrar sesion</a></li>                         
                             </ul>
                         </li>
                     </ul>
-                    <li <a class="btn btn-link" style="margin-top: 8px;">  <%= g%>  </a></li>
+                    <li <a class="btn btn-link" style="margin-top: 8px;">  <%= g %>  </a></li>
                 </div>
             </div>
         </nav>
 
     <center>
-        <h1 style="color: #ffffff" > Bienvenido: <%= g%> a love my pet</h1>
+        <h1 style="color: #ffffff" > Bienvenido: <%= g %> a love my pet</h1>
     </center>
 
     <!-- CARRUSEL-->

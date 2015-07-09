@@ -21,9 +21,12 @@
         <link href="css/bootstrap.css" rel="stylesheet">
         <!-- bootstrap-->
 
+        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Inicio</title>
-        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+
         <link rel="icon" type="image/x-icon" href="imagenes/logo7.jpg"> 
         <link rel="stylesheet" type="text/css" href="estilos.css">
         <!-- carrusel-->
@@ -32,15 +35,20 @@
         <!-- carrusel -->
 
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="css/bootstrap-responsive.css" rel="stylesheet">
         <script src="http://code.jquery.com/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
+
+
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     </head>
- 
+
     <body >
-        
+
+
         <%
             ConexionDB mysql = new ConexionDB();
             Connection cn = mysql.Conectar();
@@ -53,44 +61,48 @@
             }
 
         %>
-       
-       
-          
-                <nav class="navbar navbar-default">  
+
+
+        <div class="container">
+
+            <div class="menuu">
+                <nav class="navbar navbar-default" >  
                     <div class="container-fluid"> 
                         <div class="navbar-header">
                             <a class="navbar-brand"  href="#">inicio</a>
-                            <a class="navbar-brand"  href="#" style="margin-left:1100px;">Acerca</a>
+                            <a class="navbar-brand"  href="#" style="margin-left:1100px;" >Acerca</a>
                             <a class="navbar-brand"  href="#" style="left: 1000px;">Ayuda</a>
                         </div>
                     </div>
                 </nav>
+
                 <button type="button" class="btn btn-info" onclick="alert('<%= confir%>');">Conectar!</button> 
-         
-            
-            <div class="imagenes">
-                <p><img src="imagenes/logo9.png" style="position:absolute; left:520px; top:50px;" width="270" height="250" alt="logo8"></p>
+            </div>
 
-                <div class="img_rotar" style="">
-                    <img src="imagenes/pg.jpg"  width="320">
-                </div>
-                <div class="img_ado">
-                    <img src="imagenes/ad.jpg"  width="300">
-                </div>
+            <div class="logo">
+                <p><img src="imagenes/logo9.png"  width="270" height="250" alt="logo8"></p>
+            </div>
+            <div class="img_rotar">
+                <img src="imagenes/pg.jpg"  width="320">
+            </div>
+            <div class="img_ado">
+                <img src="imagenes/ad.jpg"  width="300">
+            </div>
 
-                <div class="text" style="position:absolute; left:390px; top:250px;">
-                    <p>
-                        Bienvenios a la pagina donde todos amamos nuestros animales
-                        aca encontraremos hermosos animales con busca de un hogar
-                        y tambien recibiremos mascotas que no tengan un hogar para
-                        brindarles un mejor cuidado y asi donarlos a un hogar con amor.
-                    </p>  
-                </div> 
+            <div class="text">
+                <p>
+                    Bienvenios a la pagina donde todos amamos nuestros animales
+                    aca encontraremos hermosos animales con busca de un hogar
+                    y tambien recibiremos mascotas que no tengan un hogar para
+                    brindarles un mejor cuidado y asi donarlos a un hogar con amor.
+                </p>  
+            </div> 
 
+            <div class="botones">
                 <input onclick="location.href = 'registro.jsp'" type="submit" class="btn btn-info" style="position:absolute; left:690px; top:365px;"value="Registrarse">
                 <input onclick="location.href = 'login.jsp'" type="submit" class="btn btn-info" style="position:absolute; left:540px; top:365px;" value="Ingresar">
-
             </div>
+
             <!-- CARRUSEL-->
             <div class="carru" >
                 <div id="wowslider-container1" >
@@ -110,7 +122,8 @@
                 <script type="text/javascript" src="engine1/script.js"></script>
             </div>
             <!-- CARRUSEL-->
-       
+        </div>
+
     </body>
-    
+
 </html>

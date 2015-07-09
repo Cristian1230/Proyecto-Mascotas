@@ -25,53 +25,50 @@
 
     <body style="margin:auto">
 
-        <nav class="navbar navbar-default">
-            <div class="container-fluid"> 
-                <div class="navbar-header">
-                    <a class="navbar-brand"  href="index.jsp">inicio</a>
-                    <a class="navbar-brand"  href="#" style="margin-left:1100px;">Acerca</a>
-                    <a class="navbar-brand"  href="#" style="left: 1000px;">Ayuda</a>
-                </div>
+        <div class="container">
+
+            <div class="menuu">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid"> 
+                        <div class="navbar-header">
+                            <a class="navbar-brand"  href="index.jsp">inicio</a>
+                            <a class="navbar-brand"  href="#" style="margin-left:1100px;">Acerca</a>
+                            <a class="navbar-brand"  href="#" style="left: 1000px;">Ayuda</a>
+                        </div>
+                    </div>
+                </nav>
             </div>
-        </nav>
+
+            <div class="registro">
+                <form style="height: 0;" action="RegistroServlet" method="post" >
+                    <fieldset  style="height: 400px; width: 40%; left: 50px;  top:70px;">
+                        <legend style="color: #ffffff;">Registro</legend>
+                        <br>
+                        <label style="left: 40px; color: #ffffff;" class="col-lg-9 control-label" for="text1">Nombre usuario
+                            <br>
+                            <input type="text" class="form-control" name="usuario" placeholder="Ingrese su nombre" required/>
+                        </label>
+                        <br>
+                        <br>
+                        <label style="left: 40px; color: #ffffff;" class="col-lg-9 control-label" for="text1">Email
+                            <br>
+                            <input type="text" class="form-control" name="email"  placeholder="Ingrese su correo" required/>
+                        </label>
+                        <br>
+                        <br>
+                        <label style="left: 40px; color: #ffffff;" class="col-lg-9 control-label" for="text1">Contraseña
+                            <br>
+                            <input type="password" class="form-control" name="password"  placeholder="Ingrese su contraseña" required/>
+                        </label>
+                        <br>
+                        <br>
 
 
-        <div class="registro">
-            <form style="height: 0;" >
-                <fieldset  style="height: 400px; width: 40%; left: 50px;  top:70px;">
-                    <legend style="color: #ffffff;">Registro</legend>
-                    <br>
-                    <label style="left: 40px; color: #ffffff;" class="col-lg-9 control-label" for="text1">Nombre usuario
-                        <br>
-                        <input type="text" class="form-control" name="usuario" placeholder="Ingrese su nombre" required/>
-                    </label>
-                    <br>
-                    <br>
-                    <label style="left: 40px; color: #ffffff;" class="col-lg-9 control-label" for="text1">Email
-                        <br>
-                        <input type="text" class="form-control"  placeholder="Ingrese su correo" required/>
-                    </label>
-                    <br>
-                    <br>
-                    <label style="left: 40px; color: #ffffff;" class="col-lg-9 control-label" for="text1">Contraseña
-                        <br>
-                        <input type="password" class="form-control"  placeholder="Ingrese su contraseña" required/>
-                    </label>
-                    <br>
-                    <br>
-                     <label style="left: 40px; color: #ffffff;" class="col-lg-9 control-label" for="text1">Confimar Contraseña
-                        <br>
-                        <input type="password" class="form-control"  placeholder="confirme su contraseña" required/>
-                    </label>
-                
-                   
-                    <input onclick="location.href = 'index.jsp'" class="btn btn-success" type="submit" value="GUARDAR" style="position:absolute; left:600px; top:450px;"/>
+                        <input onclick="location.href = 'index.jsp'" class="btn btn-success" type="submit" value="GUARDAR" style="position:absolute; left:600px; top:450px;"/>
 
-                </fieldset>
-            </form>
+                    </fieldset>
+                </form>
+            </div>
         </div>
-
-
-
     </body>
 </html>

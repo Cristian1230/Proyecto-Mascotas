@@ -8,16 +8,9 @@ package servlet;
 import conecta.db.ConexionDB;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.math.BigInteger;
-import java.nio.charset.Charset;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Locale;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,8 +22,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author Cristian
  */
-@WebServlet(name = "usuarioServlet", urlPatterns = {"/usuarioServlet"})
-public class usuarioServlet extends HttpServlet {
+@WebServlet(name = "Rmascota", urlPatterns = {"/Rmascota"})
+public class Rmascota extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -44,7 +37,18 @@ public class usuarioServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet Rmascota</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet Rmascota at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -73,51 +77,51 @@ public class usuarioServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       PrintWriter out = response.getWriter();
-        
-           try {
-            boolean buscar = false;
-        
-            String g = request.getParameter("usuario");
-            String password = request.getParameter("password");
+         PrintWriter out = response.getWriter();
+        try {
+                      
+            String tipo = request.getParameter("tipo");
+            String nombre = request.getParameter("nombre");
+            String raza = request.getParameter("raza");
+            String edad = request.getParameter("edad");
+            String color = request.getParameter("color");
+            String temperamento = request.getParameter("temperamento");
+            String vacunas = request.getParameter("vacunas");
+            String esterilizado = request.getParameter("esterilizado");
+            String desparacitado = request.getParameter("desparacitado");
             
-            
-            
-            ConexionDB sqlite = new ConexionDB();
-            java.sql.Connection cn = sqlite.Conectar();
-            Statement st = cn.createStatement();
-            ResultSet rs;
-            
-            String consulta = "Select * from usuarios where usuario='"+g+"' and password='"+ password +" ' ;";
-     
-            rs = st.executeQuery(consulta);
-         
-            while (rs.next()) {
-                g = rs.getString(1);
-                password = rs.getString(2);
-                buscar = true;
-            }
 
-            if (buscar) {
-                
-                //Creamos la sesion 
-                HttpSession session = request.getSession(true);
-                
-         
-                session.setAttribute("usuario", g);
-                session.setAttribute("password", password);
-                
+            ConexionDB mysql = new ConexionDB();
+            Connection cn = mysql.Conectar();
+            Statement st = cn.createStatement();
+            
+            String query = "insert into mascotas  values('"+ tipo +"','"+ nombre +"','"+ raza +"','"+ edad +"','"+ color +"','"+ temperamento +"','"+ vacunas +"','"+ esterilizado +"','"+ desparacitado +"');";
+            
+            st.executeUpdate(query);
+            
+            
+            HttpSession session = request.getSession(true);
+            session.setAttribute("tipo"," tipo");
+            session.setAttribute("nombre"," nombre");
+            session.setAttribute("raza"," raza");
+            session.setAttribute("edad"," edad");
+            session.setAttribute("color"," color");
+            session.setAttribute("temperamento"," temperamento");
+            session.setAttribute("vacunas"," vacunas");
+            session.setAttribute("esterilizado"," esterilizado");
+            session.setAttribute("desparacitado"," desparacitado");
+             
                 //Mandamos estos atributos a la página bienvenida.jsp
                 request.getRequestDispatcher("/bienvenida.jsp").forward(request, response);
-            } else {
-                //De lo contrario vamos a la página errorLogin.jsp      
-                request.getRequestDispatcher("/errorLogin.jsp").forward(request, response);      
-            }
+             
             out.close();
         } catch (SQLException ex) {
             out.println(ex.toString());
         }
+        
+        
     }
+
     /**
      * Returns a short description of the servlet.
      *
@@ -127,18 +131,5 @@ public class usuarioServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
-    public String getMD5(String data) {
-        String result = null;
-        MessageDigest md;
-        try {
-            md = MessageDigest.getInstance("MD5");
-            md.update(data.getBytes(Charset.forName("UTF-8")));
-            result = String.format(Locale.ROOT, "%032x", new BigInteger(1, md.digest()));
-        } catch (NoSuchAlgorithmException e) {
-            throw new IllegalStateException(e);
-        }
-        return result;
-    }
 
 }

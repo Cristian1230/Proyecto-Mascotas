@@ -26,7 +26,7 @@
 
     </head>
     <%
-        String g = (String) session.getAttribute("name");
+        String g = (String) session.getAttribute("usuario");
     %>
     <body style="margin:auto">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -46,11 +46,11 @@
                                 <li><a href="formulario-mascota.jsp">formulario de mascotas</a></li>
                                 <li><a href="mascotas.jsp">Mascotas</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="index.jsp">Cerrar sesion</a></li>                         
+                                <li><a href="cerrarsession.jsp">Cerrar sesion</a></li>                         
                             </ul>
                         </li>
                     </ul>
-                    <li <a class="btn btn-link" style="margin-top: 8px;">  <%= g%>  </a></li>
+                    <li <a class="btn btn-link" style="margin-top: 8px;">  <%= g %>  </a></li>
                 </div>
             </div>
         </nav>
@@ -59,7 +59,7 @@
         <table class=" table table-striped table-hover ">
             <thead>
                 <tr class="active">
-                    <th>usuario</th>
+                    <th>Usuario</th>
                     <th>Tipo</th>
                     <th>Nombre</th>
                     <th>Raza</th>
@@ -70,7 +70,6 @@
                     <%
                         try {
                             boolean buscar = false;
-
                             String usuario = "";
                             String tipo = "";
                             String nombre = "";
