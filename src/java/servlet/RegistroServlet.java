@@ -105,7 +105,7 @@ public class RegistroServlet extends HttpServlet {
          
              
                 //Mandamos estos atributos a la página bienvenida.jsp
-                request.getRequestDispatcher("bienvenida.jsp").forward(request, response);
+                request.getRequestDispatcher("index.jsp").forward(request, response);
                 
             
             

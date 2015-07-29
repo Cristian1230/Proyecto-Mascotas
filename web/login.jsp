@@ -20,6 +20,9 @@
         <title>Login</title>
         <link rel="icon" type="image/x-icon" href="imagenes/logo7.jpg"> 
         <link rel="stylesheet" type="text/css" href="estilos.css">
+        
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </head>
 
     <body style="margin:auto">
@@ -41,25 +44,30 @@
                     <fieldset  style=" height: 400px; width: 40%; left: 50px;">
                         <legend style="color: #ffffff;">Ingresar</legend>
                         <br>
-                        <label style="left: 40px; color: #ffffff;" class="col-lg-9 control-label" for="text1">Usuario
-                            <br>
-                            <input type="text" class="form-control" name="usuario" placeholder="Ingrese su usuario" required/>
-                        </label>
-                        <label style="left: 40px; color: #ffffff;" class="col-lg-9 control-label" >password
-                            <br>
-                            <input type="password" class="form-control" name="password" placeholder="Ingrese su contraseña" required/>
+
+                        <div class="form-group" style="left: 40px; color: #ffffff;">
+                            <label class="control-label" for="focusedInput">Usuario</label>
+                            <input class="form-control" name="usuario" type="text" placeholder="Ingrese su usuario">
+                        </div>
+
+                        <div class="form-group" style="left: 40px; color: #ffffff;">
+                            <label class="control-label" for="focusedInput">Password</label>
+                            <input class="form-control" name="password" type="password" placeholder="Ingrese su contraseña">
                             <br>
                             <a style="color: #ffffff;" href="olvidopassword.jsp">Olvidastes tu contraseña?</a>
                             <br>
-                            <a style="color: #ffffff;" href="registro.jsp">Registrarse?</a>                  
-                        </label>
+                            <a style="color: #ffffff;" href="registro.jsp">Registrarse?</a>   
+                        </div>
 
-                        <input type="submit" value="INGRESAR" class="btn btn-success" style="position:absolute; left:610px; top:450px;">
+
+
+                        <input type="submit" value="INGRESAR"  class="btn btn-success" style="position:absolute; left:610px; top:480px;">
 
 
                     </fieldset>
 
                 </form>
+
 
             </div>
         </div>

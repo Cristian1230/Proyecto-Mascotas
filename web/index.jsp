@@ -79,28 +79,31 @@
                 <button type="button" class="btn btn-info" onclick="alert('<%= confir%>');">Conectar!</button> 
             </div>
 
-            <div class="logo">
-                <p><img src="imagenes/logo9.png"  width="270" height="250" alt="logo8"></p>
-            </div>
-            <div class="img_rotar">
-                <img src="imagenes/pg.jpg"  width="320">
-            </div>
-            <div class="img_ado">
-                <img src="imagenes/ad.jpg"  width="300">
-            </div>
 
-            <div class="text">
-                <p>
-                    Bienvenios a la pagina donde todos amamos nuestros animales
-                    aca encontraremos hermosos animales con busca de un hogar
-                    y tambien recibiremos mascotas que no tengan un hogar para
-                    brindarles un mejor cuidado y asi donarlos a un hogar con amor.
-                </p>  
-            </div> 
+            <div class="informacion">
+                <div class="logo">
+                    <p><img src="imagenes/logo9.png"  width="270" height="250" alt="logo8"></p>
+                </div>
+                <div class="img_rotar">
+                    <img src="imagenes/pg.jpg"  width="320">
+                </div>
+                <div class="img_ado">
+                    <img src="imagenes/ad.jpg"  width="300">
+                </div>
 
-            <div class="botones">
-                <input onclick="location.href = 'registro.jsp'" type="submit" class="btn btn-info" style="position:absolute; left:690px; top:365px;"value="Registrarse">
-                <input onclick="location.href = 'login.jsp'" type="submit" class="btn btn-info" style="position:absolute; left:540px; top:365px;" value="Ingresar">
+                <div class="text">
+                    <p>
+                        Bienvenios a la pagina donde todos amamos nuestros animales
+                        aca encontraremos hermosos animales con busca de un hogar
+                        y tambien recibiremos mascotas que no tengan un hogar para
+                        brindarles un mejor cuidado y asi donarlos a un hogar con amor.
+                    </p>  
+                </div> 
+
+                <div class="botones">
+                    <input onclick="location.href = 'registro.jsp'" type="submit" class="btn btn-info" style="position:absolute; left:690px; top:365px;"value="Registrarse">
+                    <input onclick="location.href = 'login.jsp'" type="submit" class="btn btn-info" style="position:absolute; left:540px; top:365px;" value="Ingresar">
+                </div>
             </div>
 
             <!-- CARRUSEL-->

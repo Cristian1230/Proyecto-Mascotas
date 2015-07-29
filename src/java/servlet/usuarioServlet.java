@@ -89,7 +89,7 @@ public class usuarioServlet extends HttpServlet {
             ResultSet rs;
             
             String consulta = "Select * from usuarios where usuario='"+g+"' and password='"+ password +" ' ;";
-     
+            
             rs = st.executeQuery(consulta);
          
             while (rs.next()) {

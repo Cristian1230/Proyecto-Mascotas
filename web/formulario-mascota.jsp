@@ -22,7 +22,7 @@
         <link rel="stylesheet" type="text/css" href="estilos.css">
     </head>
     <%
-        String usuario = (String) session.getAttribute("usuario");
+        String g = (String) session.getAttribute("usuario");
     %>
 
     <body style="margin:auto">
@@ -30,90 +30,93 @@
         <script src="js/bootstrap.min.js"></script>
 
         <div class="container">
-            <div class="menuu">
-                <nav class="navbar navbar-default">
-                    <div class="container-fluid">
-                        <div class="navbar-header">
-                            <a class="navbar-brand"  href="index.jsp">inicio</a>
-                        </div>
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav" style="margin-left: 1070px;">
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cuenta <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="formulario-mascota.jsp">formulario de mascotas</a></li>
-                                        <li><a href="mascotas.jsp">Mascotas</a></li>
-                                        <li role="separator" class="divider"></li>
-                                        <li><a href="index.jsp">Cerrar sesion</a></li>                         
-                                    </ul>
-                                </li>
-                            </ul>
-                            <li <a class="btn btn-link" style="margin-top: 8px;">  <%= usuario%>  </a></li>
-                        </div>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid" style="height: 1px;">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.jsp">inicio</a>
                     </div>
-                </nav>
-            </div>
+                </div>
+                <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" aria-expanded="false" style="height: 1px;">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown" style="margin-left: 840px;">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Cuenta <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="formulario-mascota.jsp">formulario de mascotas</a></li>
+                                <li><a href="mascotas.jsp">Mascotas</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="cerrarsesion.jsp" >Cerrar sesion</a></li>   
+                            </ul>
+                        </li>
+                    </ul>
+                    <li <a class="btn btn-link" style="margin-top: 8px;">  <%= g%>  </a></li>
+                </div>
+            </nav>
 
             <div class="registro">
-                <form style="height: 0;" action="RmascotaServlet" method="post" >
-                    <fieldset  style="height: 750px; width: 40%; left: 40px;  top:10px;">
+                <form style="height: 0;" action="Rmascota" method="post" >
+                    <fieldset  style="position: relative; height: 750px; width: 40%; left: 8px;  top:-73px;">
                         <legend style="color: #ffffff;">Registro de mascota</legend>
                         
-                        <label style="left: 40px; color: #ffffff;" class="col-lg-9 control-label" for="text1">Tipo
-                            <br>
-                            <input type="text" class="form-control" name="tipo" placeholder="Ingrese tipo de mascota" required/>
-                        </label>
+                        
+                        <div class="form-group" style="left: 40px; color: #ffffff;">
+                            <label class="control-label" for="focusedInput">Tipo</label>
+                            <input class="form-control" name="tipo" type="text" placeholder="Ingrese tipo de mascota" required>
+                        </div>
+                        
+                        <div class="form-group" style="left: 40px; color: #ffffff;">
+                            <label class="control-label" for="focusedInput">Nombre de la mascota</label>
+                            <input class="form-control" name="nombre" type="text" placeholder="nombre de la mascota" required>
+                        </div>
+                       
+                        <div class="form-group" style="left: 40px; color: #ffffff;">
+                            <label class="control-label" for="focusedInput">Raza</label>
+                            <input class="form-control" name="raza" type="text" placeholder="raza de la mascota" required>
+                        </div>
+                        
+                        <div class="form-group" style="left: 40px; color: #ffffff;">
+                            <label class="control-label" for="focusedInput">Edad</label>
+                            <input class="form-control" name="edad" type="text" placeholder="Ingrese edad de la mascota" required>
+                        </div>
+                    
+                        <div class="form-group" style="left: 40px; color: #ffffff;">
+                            <label class="control-label" for="focusedInput">Color de la mascota</label>
+                            <input class="form-control" name="color" type="text" placeholder="Color de la mascota" required>
+                        </div>
+                        
+                        <div class="form-group" style="left: 40px; color: #ffffff;">
+                            <label class="control-label" for="focusedInput">Temperamento</label>
+                            <input class="form-control" name="temperamento" type="text" placeholder="Ingrese el temperamento" required>
+                        </div>
+                        
+                        <div class="form-group" style="left: 40px; color: #ffffff;">
+                            <label class="control-label" for="focusedInput">Vacunas</label>
+                            <input class="form-control" name="vacunas" type="text" placeholder="Si o No" required>
+                        </div>
+                        
+                        <div class="form-group" style="left: 40px; color: #ffffff;">
+                            <label class="control-label" for="focusedInput">Esterilizado</label>
+                            <input class="form-control" name="esterilizado" type="text" placeholder="Si o No" required>
+                        </div>
+                       
+                        <div class="form-group" style="left: 40px; color: #ffffff;">
+                            <label class="control-label" for="focusedInput">Desparacitado</label>
+                            <input class="form-control" name="desparacitado" type="text" placeholder="Si o No" required>
+                        </div>
+                        
+                        <div class="form-group" style="left: 40px; color: #ffffff;">
+                            <label class="control-label" for="focusedInput">Foto</label>
+                            <input class="form-control" name="foto" type="text" placeholder="Ingrese la URL de la imagen" required>
+                        </div>
+                 
                         <br>
                         <br>
-                        <label style="left: 40px; color: #ffffff;" class="col-lg-9 control-label" for="text1">Nombre
-                            <br>
-                            <input type="text" class="form-control" name="nombre"  placeholder="nombre de mascota" required/>
-                        </label>
-                        <br>
-                        <br>
-                        <label style="left: 40px; color: #ffffff;" class="col-lg-9 control-label" for="text1">Raza
-                            <br>
-                            <input type="text" class="form-control" name="raza"  placeholder="raza de mascota" required/>
-                        </label>
-                        <br>
-                        <br>
-                        <label style="left: 40px; color: #ffffff;" class="col-lg-9 control-label" for="text1">Edad
-                            <br>
-                            <input type="text" class="form-control" name="edad" placeholder="Edad de la mascota" required/>
-                        </label>
-                        <br>
-                        <br>
-                        <label style="left: 40px; color: #ffffff;" class="col-lg-9 control-label" for="text1">Color
-                            <br>
-                            <input type="text" class="form-control" name="color" placeholder="Color de la mascota" required/>
-                        </label>
-                        <br>
-                        <br>
-                        <label style="left: 40px; color: #ffffff;" class="col-lg-9 control-label" for="text1">Temperamento
-                            <br>
-                            <input type="text" class="form-control" name="temperamento"  placeholder="Temperamento" required/>
-                        </label>
-                        <br>
-                        <br>
-                        <label  style="left: 40px; color: #ffffff;"  class="col-lg-9 control-label">Vacunas
-                            <br>
-                             <input type="text" class="form-control" name="vacunas" placeholder="Si o No" required/>
-                        </label>
-                        <br>
-                        <br>
-                        <label  style="left: 40px; color: #ffffff;" class="col-lg-9 control-label">Esterilizado
-                            <br>
-                            <input type="text" class="form-control" name="esterilizado"  placeholder="Si o No" required/>
-                        </label>
-                        <br>
-                        <br>
-                        <label  style="left: 40px; color: #ffffff;" class="col-lg-9 control-label">Desparacitado
-                            <br>
-                            <input type="text" class="form-control" name="desparacitado"  placeholder="Si o No" required/>
-                        </label>
-                        <br>
-                        <br>
-                        <input onclick="location.href = 'index.jsp'" class="btn btn-success" type="submit" value="GUARDAR" style="position:absolute; left:620px; top:820px;"/>
+                        <input  class="btn btn-success" type="submit" value="GUARDAR" style="position:absolute; left:90px; top:858px;"/>
 
                     </fieldset>
 

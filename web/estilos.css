@@ -8,7 +8,8 @@ and open the template in the editor.
     Author     : Cristian
 */
 body{
-    background-image:url("imagenes/imagen.jpg") 
+    background-image:url("imagenes/imagen.jpg")
+        
 }
 
 .top-bar{
@@ -46,7 +47,7 @@ body{
 .img_rotar{
     position:absolute;
     margin-left: -70px;
-    margin-top: 140px;
+    margin-top: -80px;
     border: #000 5px solid;
      -webkit-box-shadow: 1px 2px 30px 10px #305AFF;
     box-shadow: 1px 2px 30px 10px #305AFF;
@@ -59,7 +60,7 @@ body{
 .img_ado{
     position:absolute;
     margin-left: 890px;
-    margin-top:130px;
+    margin-top:-85px;
     -webkit-box-shadow: 1px 2px 30px 10px #305AFF;
     box-shadow: 1px 2px 30px 10px #305AFF;
     -webkit-transform: rotate(10deg);
@@ -69,8 +70,8 @@ body{
 }
 
 .logo{
-    position: absolute;
-    left:530px; 
+    position: relative;
+    left:430px; 
     top:70px;
 }
 
@@ -88,9 +89,9 @@ body{
 }
 
 .botones{
-    position: absolute;
-     left: -0px;
-     top: 25px; 
+    position: relative;
+    left: -93px;
+    top: -231px; 
 }
 
 .carru{
@@ -103,10 +104,15 @@ body{
 }
 .carrucel{
     position: absolute;
-    margin-left: 200px;
+    margin-left: 100px;
     top: 180px;
     -webkit-box-shadow: 1px 2px 30px 20px #305AFF;
     box-shadow: 1px 2px 30px 20px #305AFF;
+}
+
+.foto{
+    position: absolute;
+    width: 50px;
 }
 
 .logi{

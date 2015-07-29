@@ -33,6 +33,9 @@
         <!-- carrusel -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Bienvenido</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </head>
     <%
         String g = (String) session.getAttribute("usuario");
@@ -41,57 +44,65 @@
 
 
     <body style="margin:auto">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+        <div class="container">
 
 
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand"  href="index.jsp">inicio</a>
+
+            <nav class="navbar navbar-default">
+                <div class="container-fluid" style="height: 1px;">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.jsp">inicio</a>
+                    </div>
                 </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav" style="margin-left: 1090px;">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cuenta <span class="caret"></span></a>
+                <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" aria-expanded="false" style="height: 1px;">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown" style="margin-left: 840px;">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Cuenta <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="formulario-mascota.jsp">formulario de mascotas</a></li>
                                 <li><a href="mascotas.jsp">Mascotas</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="cerrarsession.jsp" >Cerrar sesion</a></li>                         
+                                <li><a href="cerrarsesion.jsp" >Cerrar sesion</a></li>   
                             </ul>
                         </li>
                     </ul>
-                    <li <a class="btn btn-link" style="margin-top: 8px;">  <%= g %>  </a></li>
+                    <li <a class="btn btn-link" style="margin-top: 8px;">  <%= g%>  </a></li>
                 </div>
+            </nav>
+
+            <center>
+                <h1 style="color: #ffffff" > Bienvenido: <%= g%> a love my pet</h1>
+            </center>
+
+            <!-- CARRUSEL-->
+            <div class="carrucel">
+                <div id="wowslider-container1" >
+                    <div class="ws_images"><ul>
+                            <li><img src="data1/images/noalmaltratoanimal.jpg" alt="" title="" id="wows1_0"/></li>
+                            <li><a href="http://wowslider.com"><img src="data1/images/portada.jpg" alt="simple jquery slider" title="" id="wows1_1"/></a></li>
+                            <li><img src="data1/images/catdoggrooming960x360.jpg" alt="ADOPTAME" title="ADOPTAME" id="wows1_2"/></li>
+                        </ul></div>
+                    <div class="ws_bullets"><div>
+                            <a href="#" title=""><span><img src="data1/tooltips/noalmaltratoanimal.jpg" alt=""/>1</span></a>
+                            <a href="#" title=""><span><img src="data1/tooltips/portada.jpg" alt=""/>2</span></a>
+                            <a href="#" title="ADOPTAME"><span><img src="data1/tooltips/catdoggrooming960x360.jpg" alt="ADOPTAME"/>3</span></a>
+                        </div></div><div class="ws_script" style="position:absolute;left:-99% "><a href="http://wowslider.com/vi">jquery image slider</a> by WOWSlider.com v8.0</div>
+                    <div class="ws_shadow"></div>
+                </div>	
+                <script type="text/javascript" src="engine1/wowslider.js"></script>
+                <script type="text/javascript" src="engine1/script.js"></script>
             </div>
-        </nav>
 
-    <center>
-        <h1 style="color: #ffffff" > Bienvenido: <%= g %> a love my pet</h1>
-    </center>
+        </div>
+        <!-- CARRUSEL-->
 
-    <!-- CARRUSEL-->
-    <div class="carrucel">
-        <div id="wowslider-container1">
-            <div class="ws_images"><ul>
-                    <li><img src="data1/images/mascotaadpo.jpg" alt="Gracias por su visita" title="Gracias por su visita" id="wows1_0"/></li>
-                    <li><img src="data1/images/noalmaltratoanimal.jpg" alt="" title="" id="wows1_1"/></li>
-                    <li><a href="http://wowslider.com/vi"><img src="data1/images/portada.jpg" alt="content slider" title="" id="wows1_2"/></a></li>
-                    <li><img src="data1/images/catdoggrooming960x360.jpg" alt="Adoptame" title="Adoptame" id="wows1_3"/></li>
-                </ul></div>
-            <div class="ws_bullets"><div>
-                    <a href="#" title="Gracias por su visita"><span><img src="data1/tooltips/mascotaadpo.jpg" alt="Gracias por su visita"/>1</span></a>
-                    <a href="#" title=""><span><img src="data1/tooltips/noalmaltratoanimal.jpg" alt=""/>2</span></a>
-                    <a href="#" title=""><span><img src="data1/tooltips/portada.jpg" alt=""/>3</span></a>
-                    <a href="#" title="Adoptame"><span><img src="data1/tooltips/catdoggrooming960x360.jpg" alt="Adoptame"/>4</span></a>
-                </div></div><div class="ws_script" style="position:absolute;left:-99%"><a href="http://wowslider.com/vi">image slider jquery</a> by WOWSlider.com v8.0</div>
-            <div class="ws_shadow"></div>
-        </div>	
-        <script type="text/javascript" src="engine1/wowslider.js"></script>
-        <script type="text/javascript" src="engine1/script.js"></script>
-    </div>
-    <!-- CARRUSEL-->
-</body>
+
+    </body>
 
 </html>

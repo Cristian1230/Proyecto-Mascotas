@@ -89,30 +89,34 @@ public class Rmascota extends HttpServlet {
             String vacunas = request.getParameter("vacunas");
             String esterilizado = request.getParameter("esterilizado");
             String desparacitado = request.getParameter("desparacitado");
+            String foto = request.getParameter("foto");
             
+            
+            String usuario = "Usuario";
 
             ConexionDB mysql = new ConexionDB();
             Connection cn = mysql.Conectar();
             Statement st = cn.createStatement();
             
-            String query = "insert into mascotas  values('"+ tipo +"','"+ nombre +"','"+ raza +"','"+ edad +"','"+ color +"','"+ temperamento +"','"+ vacunas +"','"+ esterilizado +"','"+ desparacitado +"');";
+            String query = "insert into mascotas (usuario, tipo, nombre, raza, edad, color, temperamento, vacunas, esterilizado, desparacitado, foto) values ('"+ usuario +"','"+ tipo +"','"+ nombre +"','"+ raza +"','"+ edad +"','"+ color +"','"+ temperamento +"','"+ vacunas +"','"+ esterilizado +"','"+ desparacitado +"','"+ foto +"');";
             
             st.executeUpdate(query);
             
             
             HttpSession session = request.getSession(true);
-            session.setAttribute("tipo"," tipo");
-            session.setAttribute("nombre"," nombre");
-            session.setAttribute("raza"," raza");
-            session.setAttribute("edad"," edad");
-            session.setAttribute("color"," color");
-            session.setAttribute("temperamento"," temperamento");
-            session.setAttribute("vacunas"," vacunas");
-            session.setAttribute("esterilizado"," esterilizado");
-            session.setAttribute("desparacitado"," desparacitado");
+            session.setAttribute("tipo", tipo);
+            session.setAttribute("nombre", nombre);
+            session.setAttribute("raza",raza);
+            session.setAttribute("edad", edad);
+            session.setAttribute("color", color);
+            session.setAttribute("temperamento", temperamento);
+            session.setAttribute("vacunas",vacunas);
+            session.setAttribute("esterilizado", esterilizado);
+            session.setAttribute("desparacitado",desparacitado);
+            session.setAttribute("foto",foto);
              
                 //Mandamos estos atributos a la página bienvenida.jsp
-                request.getRequestDispatcher("/bienvenida.jsp").forward(request, response);
+                request.getRequestDispatcher("/mascotas.jsp").forward(request, response);
              
             out.close();
         } catch (SQLException ex) {

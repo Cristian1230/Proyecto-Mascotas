@@ -44,27 +44,23 @@
                     <fieldset  style="height: 400px; width: 40%; left: 50px;  top:70px;">
                         <legend style="color: #ffffff;">Registro</legend>
                         <br>
-                        <label style="left: 40px; color: #ffffff;" class="col-lg-9 control-label" for="text1">Nombre usuario
-                            <br>
-                            <input type="text" class="form-control" name="usuario" placeholder="Ingrese su nombre" required/>
-                        </label>
+                        <div class="form-group" style="left: 40px; color: #ffffff;">
+                            <label class="control-label" for="focusedInput">Nombre de usuario</label>
+                            <input class="form-control" name="usuario" type="text" placeholder="Ingrese su nombre" required>
+                        </div>
+                                         
+                        <div class="form-group" style="left: 40px; color: #ffffff;">
+                            <label class="control-label" for="focusedInput">Email</label>
+                            <input class="form-control" name="email" type="text" placeholder="Ingrese su correo" required/>
+                        </div>
+                                              
+                        <div class="form-group" style="left: 40px; color: #ffffff;">
+                            <label class="control-label" for="focusedInput">Contraseña</label>
+                            <input class="form-control" name="password" type="text" placeholder="Ingrese su contraseña" required/>
+                        </div>          
                         <br>
                         <br>
-                        <label style="left: 40px; color: #ffffff;" class="col-lg-9 control-label" for="text1">Email
-                            <br>
-                            <input type="text" class="form-control" name="email"  placeholder="Ingrese su correo" required/>
-                        </label>
-                        <br>
-                        <br>
-                        <label style="left: 40px; color: #ffffff;" class="col-lg-9 control-label" for="text1">Contraseña
-                            <br>
-                            <input type="password" class="form-control" name="password"  placeholder="Ingrese su contraseña" required/>
-                        </label>
-                        <br>
-                        <br>
-
-
-                        <input onclick="location.href = 'index.jsp'" class="btn btn-success" type="submit" value="GUARDAR" style="position:absolute; left:600px; top:450px;"/>
+                        <input  class="btn btn-success" type="submit" value="GUARDAR" style="position:absolute; left:600px; top:450px;"/>
 
                     </fieldset>
                 </form>
