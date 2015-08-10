@@ -50,27 +50,25 @@ public class GenerarPDF extends HttpServlet {
             java.sql.Connection cn = sqlite.Conectar();
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM mascotas;");
-            
-          
-            response.setContentType("reporte.pdf");
+
+            response.setContentType("APPLICATION/download");
+            response.setHeader("Content-Disposition", "filename=Mascotas.pdf");
             PdfWriter.getInstance(document, response.getOutputStream());
             document.open();
-            
-            
+
             Image image = Image.getInstance("C:/Users/Cristian/Documents/NetBeansProjects/adopc-mascotas/web/imagenes/logo9.png");
             image.scaleAbsolute(100, 100);
-            document.add(image);         
-            
-            document.add(new Paragraph("LOVE MY PET"));
-            document.add(new Paragraph("Mascotas"));
-   
+            document.add(image);
+
+            Paragraph preface = new Paragraph("LOVE MY PET");
+            preface.setAlignment(Element.ALIGN_CENTER);
+            document.add(preface);
 
             PdfPTable table = new PdfPTable(5); // 3 columns.
             table.setWidthPercentage(100); //Width 100%
             table.setSpacingBefore(10f); //Space before table
             table.setSpacingAfter(10f); //Space after table
 
-    
             //Set Column widths
             float[] columnWidths = {1f, 1f, 1f, 1f, 1f};
             table.setWidths(columnWidths);

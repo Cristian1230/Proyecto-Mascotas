@@ -23,11 +23,11 @@
         <title>Formulario</title>
         <link rel="icon" type="image/x-icon" href="imagenes/logo7.jpg"> 
         <link rel="stylesheet" type="text/css" href="estilos.css">
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
     </head>
     <%
-        String g = (String) session.getAttribute("usuario");
+        String usuario = (String) session.getAttribute("usuario");
     %>
     <body style="margin:auto">
         <div class="container">
@@ -42,16 +42,16 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="index.jsp">inicio</a>
+                        <a class="navbar-brand" href="bienvenida.jsp">inicio</a>
                     </div>
                 </div>
-                
+
                 <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" aria-expanded="false" style="height: 1px;">
                     <ul class="nav navbar-nav">
                         <li class="dropdown" style="margin-left: 840px;">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Cuenta <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="formulario-mascota.jsp">formulario de mascotas</a></li>
+                                <li><a href="formulario-mascota.jsp">Ingresar mascotas</a></li>
                                 <li><a href="mascotas.jsp">Mascotas</a></li>
                                 <li><a href="GenerarPDF">Generar PDF</a></li>
                                 <li role="separator" class="divider"></li>
@@ -60,14 +60,14 @@
                             </ul>
                         </li>
                     </ul>
-                    <li <a class="btn btn-link" style="margin-top: 8px;">  <%= g%>  </a></li>
+                    <li <a class="btn btn-link" style="margin-top: 8px;">  <%= usuario%>  </a></li>
                 </div>
             </nav>
-                 
+
             <div class="container">
                 <div class="njksn" style="position: absolute; top: 30px;">
                 </div>
-                <table class=" table table-striped table-hover ">
+                <table class=" table table-striped ">
                     <thead>
                         <tr class="active">
                             <th>foto</th>
@@ -78,45 +78,67 @@
                             <th>Edad</th>
                         </tr>
                     </thead>
-
-                    <%
-                        try {
-                            boolean buscar = false;
-                            String foto = "";
-                            String usuario = "";
-                            String tipo = "";
-                            String nombre = "";
-                            String raza = "";
-                            String edad = "";
-
-                            ConexionDB sqlite = new ConexionDB();
-                            java.sql.Connection cn = sqlite.Conectar();
-                            Statement st = cn.createStatement();
-                            ResultSet rs;
-
-                            String consulta = "Select * from vistamascota";
-
-                            rs = st.executeQuery(consulta);
-
-                            while (rs.next()) {
-                                foto = rs.getString(1);
-                                usuario = rs.getString(2);
-                                tipo = rs.getString(3);
-                                nombre = rs.getString(4);
-                                raza = rs.getString(5);
-                                edad = rs.getString(6);
-                                buscar = true;
-
-                    %>
                     <tbody>
-                        <tr>
+                        <%
+                            try {
+                                boolean buscar = false;
+                                String foto = "";
+                                String usu = "";
+                                String tipo = "";
+                                String nombre = "";
+                                String raza = "";
+                                String edad = "";
 
-                            <td><img src="<%= foto%>" class="foto"></td>
-                            <td><%= usuario%></td>
+                                ConexionDB sqlite = new ConexionDB();
+                                java.sql.Connection cn = sqlite.Conectar();
+                                Statement st = cn.createStatement();
+                                ResultSet rs;
+
+                                String consulta = "Select * from vistamascota";
+
+                                rs = st.executeQuery(consulta);
+
+                                while (rs.next()) {
+                                    foto = rs.getString(1);
+                                    usu = rs.getString(2);
+                                    tipo = rs.getString(3);
+                                    nombre = rs.getString(4);
+                                    raza = rs.getString(5);
+                                    edad = rs.getString(6);
+                                    buscar = true;
+
+                        %>
+
+                        <tr>
+                            <td><img src="<%= foto%>" height="100px;"></td>
+                            <td><%= usu%></td>
                             <td><%= tipo%></td>
                             <td><%= nombre%></td>
                             <td><%= raza%></td>
-                            <td><%= edad%></td>
+                            <td><%= edad%></td>                        
+                            <td>
+                                <form method="post"  action="showMascotas.jsp">
+                                    <input type="hidden" value="<%=usu%>" name="usuario">
+                                    <input type="hidden" value="<%=nombre%>" name="mascota">            
+                                    <input class="btn btn-success" type="submit" value="mostrar">
+                                </form>                               
+                            </td>
+                             <td>
+                                <form method="post" action="editMascotas.jsp">
+                                    <input type="hidden" value="<%=usu%>" name="usuario">
+                                    <input type="hidden" value="<%=nombre%>" name="mascota">            
+                                    <input class="btn btn-warning" type="submit"   value="Editar">
+                                </form>                               
+                            </td>
+                             <td>
+                               
+                                <form  method="post"  action="deleteMascota">
+                                    <input type="hidden" value="<%=usu%>" name="usuario">
+                                    <input type="hidden" value="<%=nombre%>" name="mascota">            
+                                    <input class="btn btn-danger" type="submit" value="Eliminar">
+                                </form>  
+                                  
+                            </td>
                         </tr>      
                         <%
                                 }
@@ -133,14 +155,8 @@
 
                         %>
                     </tbody>
-
                 </table>
-
-
-
             </div>
-
-
         </div>
     </body>
 </html>

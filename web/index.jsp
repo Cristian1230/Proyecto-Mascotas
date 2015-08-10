@@ -8,9 +8,7 @@
 <%@page import="conecta.db.ConexionDB"%>
 
 <!DOCTYPE html>
-<%
-    session.invalidate();
-%>
+
 <html>
     <head>
         <!-- bootstrap-->
@@ -34,16 +32,12 @@
         <script type="text/javascript" src="engine1/jquery.js"></script>
         <!-- carrusel -->
 
-
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="css/bootstrap-responsive.css" rel="stylesheet">
         <script src="http://code.jquery.com/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
-
-
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     </head>
 
     <body >
@@ -75,7 +69,6 @@
                         </div>
                     </div>
                 </nav>
-
                 <button type="button" class="btn btn-info" onclick="alert('<%= confir%>');">Conectar!</button> 
             </div>
 
@@ -94,9 +87,9 @@
                 <div class="text">
                     <p>
                         Bienvenios a la pagina donde todos amamos nuestros animales
-                        aca encontraremos hermosos animales con busca de un hogar
-                        y tambien recibiremos mascotas que no tengan un hogar para
-                        brindarles un mejor cuidado y asi donarlos a un hogar con amor.
+                        aca encontraremos hermosas mascotas en busca de un hogar,
+                        y tambien recibiremos mascotas que se encuentren abandonadas 
+                        para brindarles un mejor cuidado y asi donarlos a un hogar con amor.
                     </p>  
                 </div> 
 

@@ -20,8 +20,8 @@
         <title>Login</title>
         <link rel="icon" type="image/x-icon" href="imagenes/logo7.jpg"> 
         <link rel="stylesheet" type="text/css" href="estilos.css">
-        
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
     </head>
 
@@ -47,7 +47,7 @@
 
                         <div class="form-group" style="left: 40px; color: #ffffff;">
                             <label class="control-label" for="focusedInput">Usuario</label>
-                            <input class="form-control" name="usuario" type="text" placeholder="Ingrese su usuario">
+                            <input class="form-control" name="usuario" type="text" placeholder="Ingrese su usuario" required><!-- pattern="^[a-z\\d_]{4,15}$"-->
                         </div>
 
                         <div class="form-group" style="left: 40px; color: #ffffff;">
@@ -59,15 +59,11 @@
                             <a style="color: #ffffff;" href="registro.jsp">Registrarse?</a>   
                         </div>
 
-
-
                         <input type="submit" value="INGRESAR"  class="btn btn-success" style="position:absolute; left:610px; top:480px;">
-
 
                     </fieldset>
 
                 </form>
-
 
             </div>
         </div>

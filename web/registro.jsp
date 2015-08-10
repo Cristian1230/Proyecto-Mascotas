@@ -48,12 +48,12 @@
                             <label class="control-label" for="focusedInput">Nombre de usuario</label>
                             <input class="form-control" name="usuario" type="text" placeholder="Ingrese su nombre" required>
                         </div>
-                                         
+
                         <div class="form-group" style="left: 40px; color: #ffffff;">
                             <label class="control-label" for="focusedInput">Email</label>
                             <input class="form-control" name="email" type="text" placeholder="Ingrese su correo" required/>
                         </div>
-                                              
+
                         <div class="form-group" style="left: 40px; color: #ffffff;">
                             <label class="control-label" for="focusedInput">Contraseña</label>
                             <input class="form-control" name="password" type="text" placeholder="Ingrese su contraseña" required/>

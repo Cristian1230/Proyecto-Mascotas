@@ -22,8 +22,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author Cristian
  */
-@WebServlet(name = "Rmascota", urlPatterns = {"/Rmascota"})
-public class Rmascota extends HttpServlet {
+@WebServlet(name = "editMascotas", urlPatterns = {"/editMascotas"})
+public class editMascotas extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,10 +42,10 @@ public class Rmascota extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Rmascota</title>");            
+            out.println("<title>Servlet editMascotas</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Rmascota at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet editMascotas at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -77,18 +77,18 @@ public class Rmascota extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         PrintWriter out = response.getWriter();
+       PrintWriter out = response.getWriter();
         try {
-                      
+            String mascotavieja = request.getParameter("mascotavieja");
             String tipo = request.getParameter("tipo");
             String nombre = request.getParameter("nombre");
             String raza = request.getParameter("raza");
             String edad = request.getParameter("edad");
-            String color = request.getParameter("color");
-            String temperamento = request.getParameter("temperamento");
+            String color =request.getParameter("color");
+            String temperamento =request.getParameter("temperamento");
             String vacunas = request.getParameter("vacunas");
-            String esterilizado = request.getParameter("esterilizado");
-            String desparacitado = request.getParameter("desparacitado");
+            String esterilizado =request.getParameter("esterilizado");
+            String desparacitado =request.getParameter("desparacitado");
             String foto = request.getParameter("foto");
             String usuario = request.getParameter("usuario");
             
@@ -97,22 +97,13 @@ public class Rmascota extends HttpServlet {
             Connection cn = mysql.Conectar();
             Statement st = cn.createStatement();
             
-            String query = "insert into mascotas (usuario, tipo, nombre, raza, edad, color, temperamento, vacunas, esterilizado, desparacitado, foto) values ('"+ usuario +"','"+ tipo +"','"+ nombre +"','"+ raza +"','"+ edad +"','"+ color +"','"+ temperamento +"','"+ vacunas +"','"+ esterilizado +"','"+ desparacitado +"','"+ foto +"');";
+            String query = "Update mascotas set  usuario= '"+usuario+"' , tipo='"+ tipo +"', nombre='"+ nombre +"' , raza='"+raza+"', edad='"+edad+"', color='"+color+"', temperamento='"+temperamento+"', vacunas='"+vacunas+"' , esterilizado='"+esterilizado+"', desparacitado='"+desparacitado+"', foto='"+foto+"' where nombre = '"+mascotavieja+"'  and usuario = '"+usuario+"' ;";
             
             st.executeUpdate(query);
             
             
-            HttpSession session = request.getSession(true);
-            session.setAttribute("tipo", tipo);
-            session.setAttribute("nombre", nombre);
-            session.setAttribute("raza",raza);
-            session.setAttribute("edad", edad);
-            session.setAttribute("color", color);
-            session.setAttribute("temperamento", temperamento);
-            session.setAttribute("vacunas",vacunas);
-            session.setAttribute("esterilizado", esterilizado);
-            session.setAttribute("desparacitado",desparacitado);
-            session.setAttribute("foto",foto);
+            HttpSession session = request.getSession(false);
+        
              
                 //Mandamos estos atributos a la página bienvenida.jsp
                 request.getRequestDispatcher("/mascotas.jsp").forward(request, response);
@@ -121,6 +112,8 @@ public class Rmascota extends HttpServlet {
         } catch (SQLException ex) {
             out.println(ex.toString());
         }
+        
+        
         
         
     }

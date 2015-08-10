@@ -38,16 +38,14 @@
         <script src="js/bootstrap.min.js"></script>
     </head>
     <%
-        String g = (String) session.getAttribute("usuario");
+        String usuario = (String) session.getAttribute("usuario");
         String email = (String) session.getAttribute("email");
     %>
 
 
     <body style="margin:auto">
         <div class="container">
-
-
-
+            
             <nav class="navbar navbar-default">
                 <div class="container-fluid" style="height: 1px;">
                     <div class="navbar-header">
@@ -57,7 +55,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="index.jsp">inicio</a>
+                        <a class="navbar-brand" href="bienvenida.jsp">inicio</a>
                     </div>
                 </div>
                 <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" aria-expanded="false" style="height: 1px;">
@@ -65,20 +63,20 @@
                         <li class="dropdown" style="margin-left: 840px;">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Cuenta <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="formulario-mascota.jsp">formulario de mascotas</a></li>
+                                <li><a href="formulario-mascota.jsp">Ingresar mascotas</a></li>
                                 <li><a href="mascotas.jsp">Mascotas</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="cerrarsesion.jsp" >Cerrar sesion</a></li>   
                             </ul>
                         </li>
                     </ul>
-                    <li <a class="btn btn-link" style="margin-top: 8px;">  <%= g%>  </a></li>
+                    <li <a class="btn btn-link" style="margin-top: 8px;">  <%= usuario%>  </a></li>
                 </div>
             </nav>
 
-            <center>
-                <h1 style="color: #ffffff" > Bienvenido: <%= g%> a love my pet</h1>
-            </center>
+            <div class="bien" style="color: #ffffff; font-size: 37px; margin-left: 261px;">
+                <font face="Comic Sans MS,Arial,Verdana" > Bienvenido: <%= usuario %> a love my pet</font>
+            </div>
 
             <!-- CARRUSEL-->
             <div class="carrucel">

@@ -20,14 +20,15 @@
         <title>mascota</title>
         <link rel="icon" type="image/x-icon" href="imagenes/logo7.jpg"> 
         <link rel="stylesheet" type="text/css" href="estilos.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </head>
     <%
-        String g = (String) session.getAttribute("usuario");
+        String usuario = (String) session.getAttribute("usuario");
     %>
 
     <body style="margin:auto">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+
 
         <div class="container">
             <nav class="navbar navbar-default">
@@ -39,7 +40,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="index.jsp">inicio</a>
+                        <a class="navbar-brand" href="bienvenida.jsp">inicio</a>
                     </div>
                 </div>
                 <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" aria-expanded="false" style="height: 1px;">
@@ -54,66 +55,78 @@
                             </ul>
                         </li>
                     </ul>
-                    <li <a class="btn btn-link" style="margin-top: 8px;">  <%= g%>  </a></li>
+                    <li <a class="btn btn-link" style="margin-top: 8px;">  <%= usuario%>  </a></li>
                 </div>
             </nav>
 
             <div class="registro">
-                <form style="height: 0;" action="Rmascota" method="post" >
+                <form style="height: 0;"  action="Rmascota" method="post" >
                     <fieldset  style="position: relative; height: 750px; width: 40%; left: 8px;  top:-73px;">
                         <legend style="color: #ffffff;">Registro de mascota</legend>
-                        
-                        
+
+                        <input type="hidden"   name="usuario" value="<%= usuario%>"/>
+
                         <div class="form-group" style="left: 40px; color: #ffffff;">
                             <label class="control-label" for="focusedInput">Tipo</label>
                             <input class="form-control" name="tipo" type="text" placeholder="Ingrese tipo de mascota" required>
                         </div>
-                        
+
                         <div class="form-group" style="left: 40px; color: #ffffff;">
                             <label class="control-label" for="focusedInput">Nombre de la mascota</label>
                             <input class="form-control" name="nombre" type="text" placeholder="nombre de la mascota" required>
                         </div>
-                       
+
                         <div class="form-group" style="left: 40px; color: #ffffff;">
                             <label class="control-label" for="focusedInput">Raza</label>
                             <input class="form-control" name="raza" type="text" placeholder="raza de la mascota" required>
                         </div>
-                        
+
                         <div class="form-group" style="left: 40px; color: #ffffff;">
                             <label class="control-label" for="focusedInput">Edad</label>
                             <input class="form-control" name="edad" type="text" placeholder="Ingrese edad de la mascota" required>
                         </div>
-                    
+                        
                         <div class="form-group" style="left: 40px; color: #ffffff;">
                             <label class="control-label" for="focusedInput">Color de la mascota</label>
                             <input class="form-control" name="color" type="text" placeholder="Color de la mascota" required>
                         </div>
-                        
+
                         <div class="form-group" style="left: 40px; color: #ffffff;">
                             <label class="control-label" for="focusedInput">Temperamento</label>
                             <input class="form-control" name="temperamento" type="text" placeholder="Ingrese el temperamento" required>
                         </div>
-                        
+
                         <div class="form-group" style="left: 40px; color: #ffffff;">
                             <label class="control-label" for="focusedInput">Vacunas</label>
-                            <input class="form-control" name="vacunas" type="text" placeholder="Si o No" required>
+                            <br>
+                            <select class="form-control" name="vacunas">
+                                <option value="Si" >Si  </option>
+                                <option value="No" >No  </option>
+                            </select>
                         </div>
-                        
+
                         <div class="form-group" style="left: 40px; color: #ffffff;">
                             <label class="control-label" for="focusedInput">Esterilizado</label>
-                            <input class="form-control" name="esterilizado" type="text" placeholder="Si o No" required>
+                             <br>
+                            <select class="form-control" name="esterilizado">
+                                <option value="Si" >Si  </option>
+                                <option value="No" >No  </option>
+                            </select>
                         </div>
-                       
+
                         <div class="form-group" style="left: 40px; color: #ffffff;">
                             <label class="control-label" for="focusedInput">Desparacitado</label>
-                            <input class="form-control" name="desparacitado" type="text" placeholder="Si o No" required>
+                             <br>
+                            <select class="form-control" name="desparacitado">
+                                <option value="Si" >Si  </option>
+                                <option value="No" >No  </option>
+                            </select>
                         </div>
-                        
+
                         <div class="form-group" style="left: 40px; color: #ffffff;">
                             <label class="control-label" for="focusedInput">Foto</label>
-                            <input class="form-control" name="foto" type="text" placeholder="Ingrese la URL de la imagen" required>
+                            <input class="form-control" name="foto" type="text" placeholder="Ingrese la URL de la imagen" >
                         </div>
-                 
                         <br>
                         <br>
                         <input  class="btn btn-success" type="submit" value="GUARDAR" style="position:absolute; left:90px; top:858px;"/>
@@ -122,6 +135,7 @@
 
                 </form>
 
+                </form>
             </div>
         </div>
     </body>

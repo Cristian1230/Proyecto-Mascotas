@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-          <!-- bootstrap-->
+        <!-- bootstrap-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -22,38 +22,33 @@
         <link rel="icon" type="image/x-icon" href="imagenes/logo7.jpg"> 
         <link rel="stylesheet" type="text/css" href="estilos.css">
     </head>
-    
- <body style="margin:auto">
 
-        <nav class="navbar navbar-default">
-            <div class="container-fluid"> 
-                <div class="navbar-header">
-                    <a class="navbar-brand"  href="index.jsp">inicio</a>
+    <body style="margin:auto">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid"> 
+                    <div class="navbar-header">
+                        <a class="navbar-brand"  href="index.jsp">inicio</a>
+                    </div>
                 </div>
-            </div>
-        </nav>
-        
-               
-         <div class="ingreso2">
-            <form action="usuarioServlet" method="post">
+            </nav>
 
-                <fieldset  style=" height:90px; width: 30%; left: 50px;">
-                    <legend style=" color: #ffffff;" >Recuperar contraseña</legend>
-                       
-                    <label style="left: 25px; color: #ffffff;" class="col-lg-9 control-label" for="text1">Correo
-                        <br>
-                        <input type="text" class="form-control" name="usuario" placeholder="Ingrese su correo" required/>
-                    </label>
-                   
-                        <input type="submit" value="ENVIAR" class="btn btn-success" style="position:absolute; left:620px; top:310px;" />
+
+            <div class="ingreso2" style="margin-left: 419px;">
+                <form action="usuarioServlet" method="post">
+                    <fieldset  style=" height:90px; width: 30%; left: 50px;">
+                        <legend style=" color: #ffffff;" >Recuperar contraseña</legend>
+
+                        <div class="form-group" style="left: 40px; color: #ffffff;">
+                            <label class="control-label" for="focusedInput">Correo</label>
+                            <input class="form-control" name="usuario" type="text" placeholder="Ingrese su correo"requiere/>
+                        </div>
+
+                        <input type="submit" value="ENVIAR" class="btn btn-success" style="position:absolute; left:599px; top:310px;" />
 
                     </fieldset>
                 </form>
-
             </div>
         </div>
-        
-        
-        
     </body>
 </html>

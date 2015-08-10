@@ -78,7 +78,7 @@ public class usuarioServlet extends HttpServlet {
            try {
             boolean buscar = false;
         
-            String g = request.getParameter("usuario");
+            String usuario = request.getParameter("usuario");
             String password = request.getParameter("password");
             
             
@@ -88,12 +88,12 @@ public class usuarioServlet extends HttpServlet {
             Statement st = cn.createStatement();
             ResultSet rs;
             
-            String consulta = "Select * from usuarios where usuario='"+g+"' and password='"+ password +" ' ;";
+            String consulta = "Select * from usuarios where usuario='"+usuario+"' and password='"+ password +" ' ;";
             
             rs = st.executeQuery(consulta);
          
             while (rs.next()) {
-                g = rs.getString(1);
+                usuario = rs.getString(1);
                 password = rs.getString(2);
                 buscar = true;
             }
@@ -104,7 +104,7 @@ public class usuarioServlet extends HttpServlet {
                 HttpSession session = request.getSession(true);
                 
          
-                session.setAttribute("usuario", g);
+                session.setAttribute("usuario", usuario);
                 session.setAttribute("password", password);
                 
                 //Mandamos estos atributos a la página bienvenida.jsp

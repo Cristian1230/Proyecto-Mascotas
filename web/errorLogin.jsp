@@ -25,15 +25,15 @@
         <link rel="stylesheet" type="text/css" href="estilos.css">
         <title>Error</title>
     </head>
-   <nav class="navbar navbar-default">
-            <div class="container-fluid"> 
-                <div class="navbar-header">
-                    <a class="navbar-brand"  href="index.jsp">inicio</a>
-                    <a class="navbar-brand"  href="#" style="margin-left:1100px;">Acerca</a>
-                    <a class="navbar-brand"  href="#" style="left: 1000px;">Ayuda</a>
-                </div>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid"> 
+            <div class="navbar-header">
+                <a class="navbar-brand"  href="index.jsp">inicio</a>
+                <a class="navbar-brand"  href="#" style="margin-left:1100px;">Acerca</a>
+                <a class="navbar-brand"  href="#" style="left: 1000px;">Ayuda</a>
             </div>
-        </nav>
+        </div>
+    </nav>
 
     <center>
 
