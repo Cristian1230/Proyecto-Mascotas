@@ -23,48 +23,53 @@
         <link rel="stylesheet" type="text/css" href="estilos.css">       
     </head>
 
-    <body style="margin:auto">
+    <body>
 
-        <div class="container">
+         <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.jsp">Inicio</a>
+                </div>
 
-            <div class="menuu">
-                <nav class="navbar navbar-default">
-                    <div class="container-fluid"> 
-                        <div class="navbar-header">
-                            <a class="navbar-brand"  href="index.jsp">inicio</a>
-                            <a class="navbar-brand"  href="#" style="margin-left:1100px;">Acerca</a>
-                            <a class="navbar-brand"  href="#" style="left: 1000px;">Ayuda</a>
-                        </div>
-                    </div>
-                </nav>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">                      
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Acerca</a></li>
+                        <li><a href="#">Ayuda</a></li>
+                    </ul>
+                </div>
             </div>
+        </nav>
 
-            <div class="registro">
+    <center style="margin-top: 78px;">
                 <form style="height: 0;" action="RegistroServlet" method="post" >
-                    <fieldset  style="height: 400px; width: 40%; left: 50px;  top:70px;">
+                    <fieldset  style="height: 400px; width: 28%; left: 50px;  top:70px;">
                         <legend style="color: #ffffff;">Registro</legend>
                         <br>
                         <div class="form-group" style="left: 40px; color: #ffffff;">
-                            <label class="control-label" for="focusedInput">Nombre de usuario</label>
-                            <input class="form-control" name="usuario" type="text" placeholder="Ingrese su nombre" required>
+                            <label class="nav navbar-nav navbar-btn"  for="focusedInput">Nombre de usuario</label>
+                            <input class="form-control" name="usuario" type="text" placeholder="Ingrese su nombre" pattern="^[a-z\\d_]{4,15}$" >
                         </div>
 
                         <div class="form-group" style="left: 40px; color: #ffffff;">
-                            <label class="control-label" for="focusedInput">Email</label>
-                            <input class="form-control" name="email" type="text" placeholder="Ingrese su correo" required/>
+                            <label class="nav navbar-nav navbar-btn"  for="focusedInput">Email</label>
+                            <input class="form-control" name="email" type="text" placeholder="Ingrese su correo"  required/><!-- pattern="^[\\w-]+(\\.[\\w-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"-->
                         </div>
 
                         <div class="form-group" style="left: 40px; color: #ffffff;">
-                            <label class="control-label" for="focusedInput">Contraseña</label>
-                            <input class="form-control" name="password" type="text" placeholder="Ingrese su contraseña" required/>
+                            <label class="nav navbar-nav navbar-btn"  for="focusedInput">Contraseña</label>
+                            <input class="form-control" name="password" type="text" placeholder="Ingrese su contraseña" required>
                         </div>          
                         <br>
                         <br>
-                        <input  class="btn btn-success" type="submit" value="GUARDAR" style="position:absolute; left:600px; top:450px;"/>
-
+                        <input  class="btn btn-success" type="submit" value="GUARDAR" style=""/>
                     </fieldset>
                 </form>
-            </div>
-        </div>
+    </center>
     </body>
 </html>

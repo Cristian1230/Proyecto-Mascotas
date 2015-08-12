@@ -25,47 +25,60 @@
         <script src="js/bootstrap.min.js"></script>
     </head>
 
-    <body style="margin:auto">
-        <div class="container">
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.jsp">Inicio</a>
+                </div>
 
-            <div class="menuu">
-                <nav class="navbar navbar-default">
-                    <div class="container-fluid"> 
-                        <div class="navbar-header">
-                            <a class="navbar-brand"  href="index.jsp">inicio</a>
-                        </div>
-                    </div>
-                </nav>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">                      
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Acerca</a></li>
+                        <li><a href="#">Ayuda</a></li>
+                    </ul>
+                </div>
             </div>
+        </nav>
 
-            <div class="ingreso">
-                <form action="usuarioServlet" method="post">
+    <center style=" margin-top: 91px;">
+        <form  action="usuarioServlet" method="post">
+            <fieldset  style=" height: 400px; width: 26%; ">
+                <legend style="color: #ffffff;">Ingresar</legend>
+                <br>
+                <div class="form-group" style="left: 40px; color: #ffffff;">
+                    <label class="nav navbar-nav navbar-btn" for="focusedInput">Usuario</label>
+                    <input class="form-control" name="usuario" type="text" placeholder="Ingrese su usuario" pattern="^[a-z\\d_]{4,15}$" ><!-- pattern="^[a-z\\d_]{4,15}$"-->
+                </div>
 
-                    <fieldset  style=" height: 400px; width: 40%; left: 50px;">
-                        <legend style="color: #ffffff;">Ingresar</legend>
-                        <br>
+                <div class="form-group" style="left: 40px; color: #ffffff;">
+                    <label class="nav navbar-nav navbar-btn" for="focusedInput">Password</label>
+                    <input class="form-control" name="password" type="password" placeholder="Ingrese su contraseña">
+                    <br>
+                    <a class="nav navbar-nav navbar-btn" style="color: #ffffff;" href="olvidopassword.jsp">Olvidastes tu contraseña?</a>
+                    <br>
+                    <br>
+                    <a class="nav navbar-nav navbar-btn" style="color: #ffffff;" href="registro.jsp">Registrarse?</a>   
+                </div>
 
-                        <div class="form-group" style="left: 40px; color: #ffffff;">
-                            <label class="control-label" for="focusedInput">Usuario</label>
-                            <input class="form-control" name="usuario" type="text" placeholder="Ingrese su usuario" required><!-- pattern="^[a-z\\d_]{4,15}$"-->
-                        </div>
+                <input type="submit" value="INGRESAR" class="btn btn-success" style=" margin-top: 43px;  margin-left: -102px;">
 
-                        <div class="form-group" style="left: 40px; color: #ffffff;">
-                            <label class="control-label" for="focusedInput">Password</label>
-                            <input class="form-control" name="password" type="password" placeholder="Ingrese su contraseña">
-                            <br>
-                            <a style="color: #ffffff;" href="olvidopassword.jsp">Olvidastes tu contraseña?</a>
-                            <br>
-                            <a style="color: #ffffff;" href="registro.jsp">Registrarse?</a>   
-                        </div>
+            </fieldset>
 
-                        <input type="submit" value="INGRESAR"  class="btn btn-success" style="position:absolute; left:610px; top:480px;">
+        </form>
+    </center>
 
-                    </fieldset>
 
-                </form>
 
-            </div>
-        </div>
-    </body>
+
+
+
+
+</body>
 </html>

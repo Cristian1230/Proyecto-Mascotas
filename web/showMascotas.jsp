@@ -26,68 +26,104 @@
         <script src="js/bootstrap.min.js"></script>
         <title> Datos</title>
     </head>
+
+    <%
+        String nombre = request.getParameter("mascota");
+        String usuario = request.getParameter("usuario");
+    %>
     <body>
-        <div class="container">
-            <div class="njksn" style="position: absolute; top: 30px;">
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="bienvenida.jsp">inicio</a>
+                </div>
+
+                <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li class="dropdown" >
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Cuenta <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="formulario-mascota.jsp">Ingresar mascotas</a></li>
+                                <li><a href="mascotas.jsp">Mascotas</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="cerrarsesion.jsp" >Cerrar sesion</a></li>   
+                            </ul>
+                        </li>
+                        <li><a class="btn btn-link">  <%= usuario%>  </a></li>
+                    </ul>
+                </div>
             </div>
-            <table class=" table table-striped ">
-                <thead>
-                    <tr class="active">
-                        <%
-                            String nombre = request.getParameter("mascota");
-                            String usuario = request.getParameter("usuario");
+        </nav>
 
-                            ConexionDB sqlite = new ConexionDB();
-                            java.sql.Connection cn = sqlite.Conectar();
-                            Statement st = cn.createStatement();
-                            ResultSet rs;
+    <center>
+        <div class="panel panel-primary"style=" width: 463px;" >
+            <div class="panel-heading">
+                <h3 class="panel-title">Mascota</h3>
+            </div>
+            <div class="panel-body">
 
-                            String tipo = "";
-                            String raza = "";
-                            String edad = "";
-                            String color = "";
-                            String temperamento = "";
-                            String vacunas = "";
-                            String esterilizado = "";
-                            String desparacitado = "";
-                            String foto = "";
 
-                            String consulta = "Select * from mascotas where usuario='" + usuario + "' and nombre='" + nombre + " ' ;";
+                <%
 
-                            rs = st.executeQuery(consulta);
+                    ConexionDB sqlite = new ConexionDB();
+                    java.sql.Connection cn = sqlite.Conectar();
+                    Statement st = cn.createStatement();
+                    ResultSet rs;
 
-                            while (rs.next()) {
-                                usuario = rs.getString(1);
-                                tipo = rs.getString(2);
-                                nombre = rs.getString(3);
-                                raza = rs.getString(4);
-                                edad = rs.getString(5);
-                                color = rs.getString(6);
-                                temperamento = rs.getString(7);
-                                vacunas = rs.getString(8);
-                                esterilizado = rs.getString(9);
-                                desparacitado = rs.getString(10);
-                                foto = rs.getString(11);
+                    String tipo = "";
+                    String raza = "";
+                    String edad = "";
+                    String color = "";
+                    String temperamento = "";
+                    String vacunas = "";
+                    String esterilizado = "";
+                    String desparacitado = "";
+                    String foto = "";
 
-                            }
-                        %>
+                    String consulta = "Select * from mascotas where usuario='" + usuario + "' and nombre='" + nombre + " ' ;";
 
-                        <td> <%=  usuario%> </td>
-                        <td> <%=  tipo%></td>
-                        <td> <%=  nombre%></td>
-                        <td> <%=  raza%></td>
-                        <td> <%=  edad%></td>
-                        <td> <%=  color%></td>
-                        <td> <%=  temperamento%></td>
-                        <td> <%=  vacunas%></td>
-                        <td> <%=  esterilizado%></td>
-                        <td> <%=  desparacitado%></td>
-                        <td> <%=  foto%></td>
+                    rs = st.executeQuery(consulta);
 
-                </thead>
-            </table>
+                    while (rs.next()) {
+                        usuario = rs.getString(1);
+                        tipo = rs.getString(2);
+                        nombre = rs.getString(3);
+                        raza = rs.getString(4);
+                        edad = rs.getString(5);
+                        color = rs.getString(6);
+                        temperamento = rs.getString(7);
+                        vacunas = rs.getString(8);
+                        esterilizado = rs.getString(9);
+                        desparacitado = rs.getString(10);
+                        foto = rs.getString(11);
+
+                    }
+                %>
+
+                <h3>Usuario: <%=  usuario%></h3> 
+                <h3>Tipo: <%=  tipo%></h3>             
+                <h3>Nombre de la mascota: <%=  nombre%></h3>              
+                <h3>Raza: <%=  raza%></h3>              
+                <h3>Edad: <%=  edad%></h3>       
+                <h3>Color: <%=  color%></h3>            
+                <h3>Temperamento: <%=  temperamento%></h3>                   
+                <h3>Vacunas: <%=  vacunas%></h3>           
+                <h3>Esterilizado: <%=  esterilizado%></h3> 
+                <h3>Desparacitado: <%=  desparacitado%></h3> 
+
+            </div>
         </div>
+</center>
+  
 
 
-    </body>
+</body>
 </html>

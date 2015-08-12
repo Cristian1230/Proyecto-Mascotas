@@ -18,27 +18,8 @@ body{
 .right{
     background-color: #B4B4B4;
 }
-.text{
-    position:absolute; 
-    text-align: center;
-    left:400px; 
-    top:280px;
-    color: #ffffff;
-    width: 40%;
-    height: 100px;
-    font-family: Comic Sans MS, Arial, MS Sans Serif;
-}
 
-.registro{
-    background-color: #999999;
-    margin-left: 400px;
-    margin-top: 130px;   
-}
-.ingreso{
-    margin-left: 400px;
-    margin-top: 180px; 
-    margin-height: 150px;
-}
+
 .ingreso2{
     margin-left: 550px;
     margin-top: 130px; 
@@ -46,7 +27,7 @@ body{
 }
 .img_rotar{
     position:absolute;
-    margin-left: -70px;
+    margin-left: 32px;
     margin-top: -80px;
     border: #000 5px solid;
     -webkit-box-shadow: 1px 2px 30px 10px #305AFF;
@@ -59,8 +40,8 @@ body{
 }
 .img_ado{
     position:absolute;
-    margin-left: 890px;
-    margin-top:-85px;
+    margin-left: 987px;
+    margin-top: -105px;
     -webkit-box-shadow: 1px 2px 30px 10px #305AFF;
     box-shadow: 1px 2px 30px 10px #305AFF;
     -webkit-transform: rotate(10deg);
@@ -69,11 +50,7 @@ body{
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
 }
 
-.logo{
-    position: relative;
-    left:430px; 
-    top:70px;
-}
+
 
 .ima_error{
     position: absolute;
@@ -92,22 +69,6 @@ body{
     position: relative;
     left: -93px;
     top: -231px; 
-}
-
-.carru{
-    position:absolute; 
-    -webkit-box-shadow: 1px 2px 30px 10px #EAEDFF;
-    box-shadow: 1px 2px 30px 10px #EAEDFF;
-    margin-left: 85px; 
-    top: 470px
-
-}
-.carrusel{
-    position: absolute;
-    margin-left: 100px;
-    top: 180px;
-    -webkit-box-shadow: 1px 2px 30px 20px #305AFF;
-    box-shadow: 1px 2px 30px 20px #305AFF;
 }
 
 

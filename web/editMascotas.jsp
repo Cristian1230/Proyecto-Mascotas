@@ -28,10 +28,46 @@
 
     </head>
     <%
-        String nombre = request.getParameter("mascota");
+      String nombre = request.getParameter("mascota");
         String usuario = request.getParameter("usuario");
+    %>
+    <body>
 
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="bienvenida.jsp">inicio</a>
+                </div>
 
+                <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li class="dropdown" >
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Cuenta <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="formulario-mascota.jsp">Ingresar mascotas</a></li>
+                                <li><a href="mascotas.jsp">Mascotas</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="cerrarsesion.jsp" >Cerrar sesion</a></li>   
+                            </ul>
+                        </li>
+                        <li><a class="btn btn-link">  <%= usuario%>  </a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    
+    
+    
+    
+    <%
+        
         ConexionDB sqlite = new ConexionDB();
         java.sql.Connection cn = sqlite.Conectar();
         Statement st = cn.createStatement();
@@ -67,48 +103,46 @@
         }
     %>
 
-
-
-    <body>
-        <div class="registro">
+    
+    <center>
             <form style="height: 0;"  action="editMascotas" method="post" >
-                <fieldset  style="position: relative; height: 750px; width: 40%; left: 8px;  top:-73px;">
+                <fieldset  style="position: relative; height: 750px; width: 27%; left: 8px;  top:15px;">
                     <legend style="color: #ffffff;">Registro de mascota</legend>
 
                     <input type="hidden"   name="usuario" value="<%= usuario%>"/>
                     <input type="hidden"   name="mascotavieja" value="<%= nombre%>"/>
                     <div class="form-group" style="left: 40px; color: #ffffff;">
-                        <label class="control-label" for="focusedInput">Tipo</label>
+                        <label class="nav navbar-nav navbar-btn" for="focusedInput">Tipo</label>
                         <input class="form-control" value="<%= tipo%>" name="tipo" type="text" placeholder="Ingrese tipo de mascota" required>
                     </div>
 
                     <div class="form-group" style="left: 40px; color: #ffffff;">
-                        <label class="control-label" for="focusedInput">Nombre de la mascota</label>
+                        <label class="nav navbar-nav navbar-btn" for="focusedInput">Nombre de la mascota</label>
                         <input class="form-control" value="<%= nombre%>" name="nombre" type="text" placeholder="nombre de la mascota" required>
                     </div>
 
                     <div class="form-group" style="left: 40px; color: #ffffff;">
-                        <label class="control-label" for="focusedInput">Raza</label>
+                        <label class="nav navbar-nav navbar-btn" for="focusedInput">Raza</label>
                         <input class="form-control" value="<%= raza%>" name="raza" type="text" placeholder="raza de la mascota" required>
                     </div>
 
                     <div class="form-group" style="left: 40px; color: #ffffff;">
-                        <label class="control-label" for="focusedInput">Edad</label>
+                        <label class="nav navbar-nav navbar-btn" for="focusedInput">Edad</label>
                         <input class="form-control" value="<%= edad%>" name="edad" type="text" placeholder="Ingrese edad de la mascota" required>
                     </div>
 
                     <div class="form-group" style="left: 40px; color: #ffffff;">
-                        <label class="control-label" for="focusedInput">Color de la mascota</label>
+                        <label class="nav navbar-nav navbar-btn" for="focusedInput">Color de la mascota</label>
                         <input class="form-control" value="<%= color%>" name="color" type="text" placeholder="Color de la mascota" required>
                     </div>
 
                     <div class="form-group" style="left: 40px; color: #ffffff;">
-                        <label class="control-label" for="focusedInput">Temperamento</label>
+                        <label class="nav navbar-nav navbar-btn" for="focusedInput">Temperamento</label>
                         <input class="form-control" value="<%= temperamento%>" name="temperamento" type="text" placeholder="Ingrese el temperamento" required>
                     </div>
 
                     <div class="form-group" style="left: 40px; color: #ffffff;">
-                        <label class="control-label"  for="focusedInput">Vacunas</label>
+                        <label class="nav navbar-nav navbar-btn"  for="focusedInput">Vacunas</label>
                         <br>
                         <select class="form-control"  name="vacunas">
                             <option value="Si" >Si  </option>
@@ -117,7 +151,7 @@
                     </div>
 
                     <div class="form-group" style="left: 40px; color: #ffffff;">
-                        <label class="control-label" for="focusedInput">Esterilizado</label>
+                        <label class="nav navbar-nav navbar-btn" for="focusedInput">Esterilizado</label>
                         <br>
                         <select class="form-control" name="esterilizado">
                             <option value="Si" >Si  </option>
@@ -126,7 +160,7 @@
                     </div>
 
                     <div class="form-group" style="left: 40px; color: #ffffff;">
-                        <label class="control-label" for="focusedInput">Desparacitado</label>
+                        <label class="nav navbar-nav navbar-btn" for="focusedInput">Desparacitado</label>
                         <br>
                         <select class="form-control" name="desparacitado">
                             <option value="Si" >Si  </option>
@@ -135,18 +169,17 @@
                     </div>
 
                     <div class="form-group" style="left: 40px; color: #ffffff;">
-                        <label class="control-label" for="focusedInput">Foto</label>
+                        <label class="nav navbar-nav navbar-btn" for="focusedInput">Foto</label>
                         <input class="form-control" name="foto" type="text" placeholder="Ingrese la URL de la imagen" >
                     </div>
                     <br>
                     <br>
-                    <input  class="btn btn-success" type="submit" value="GUARDAR" style="position:absolute; left:90px; top:858px;"/>
+                    <input  class="btn btn-success" type="submit" value="GUARDAR"/>
 
                 </fieldset>
 
             </form>
+    </center>
 
-
-        </div>
     </body>
 </html>
