@@ -1,6 +1,6 @@
 <%-- 
-    Document   : bienvenida
-    Created on : 25/05/2015, 09:34:27 AM
+    Document   : mascotas-adoptadas
+    Created on : 12/08/2015, 01:19:09 PM
     Author     : Cristian
 --%>
 
@@ -18,31 +18,18 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/bootstrap.css" rel="stylesheet">
-        <script type="text/javascript" src="js/bootstrap.js"></script>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/npm.js"></script>
         <!-- bootstrap-->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/foundation.css" type="text/css">
+        <title>Formulario</title>
         <link rel="icon" type="image/x-icon" href="imagenes/logo7.jpg"> 
         <link rel="stylesheet" type="text/css" href="estilos.css">
-        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-        <!-- carrusel-->
-        <link rel="stylesheet" type="text/css" href="engine1/style.css" />
-        <script type="text/javascript" src="engine1/jquery.js"></script>
-        <!-- carrusel -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Bienvenido</title>
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
     </head>
     <%
         String usuario = (String) session.getAttribute("usuario");
-        String email = (String) session.getAttribute("email");
+        String rol = (String) session.getAttribute("rol");
     %>
-
-
     <body>
 
         <nav class="navbar navbar-default">
@@ -59,51 +46,90 @@
 
                 <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                     
+
                         <li class="dropdown" >
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Cuenta <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="formulario-mascota.jsp">Ingresar mascotas</a></li>
                                 <li><a href="mascotas.jsp">Mascotas</a></li>
+                                <li><a href="GenerarPDF">Descargar PDF</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="cerrarsesion.jsp" >Cerrar sesion</a></li>   
                             </ul>
                         </li>
-                           <li><a class="btn btn-link">  <%= usuario%>  </a></li>
+                        <li><a class="btn btn-link">  <%= usuario%>  </a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-                    
-    <center>
-        <div class="bien" style="color: #ffffff; font-size: 37px; ">
-            <font face="Comic Sans MS,Arial,Verdana" > Bienvenido: <%= usuario%> a love my pet</font>
-        </div>
-    </center>
-    
-    
-        <!-- CARRUSEL-->
-        <center>
-        <div class="carrucel">
-            <div id="wowslider-container1" >
-                <div class="ws_images"><ul>
-                        <li><img src="data1/images/noalmaltratoanimal.jpg" alt="" title="" id="wows1_0"/></li>
-                        <li><a href="http://wowslider.com"><img src="data1/images/portada.jpg" alt="simple jquery slider" title="" id="wows1_1"/></a></li>
-                        <li><img src="data1/images/catdoggrooming960x360.jpg" alt="ADOPTAME" title="ADOPTAME" id="wows1_2"/></li>
-                    </ul></div>
-                <div class="ws_bullets"><div>
-                        <a href="#" title=""><span><img src="data1/tooltips/noalmaltratoanimal.jpg" alt=""/>1</span></a>
-                        <a href="#" title=""><span><img src="data1/tooltips/portada.jpg" alt=""/>2</span></a>
-                        <a href="#" title="ADOPTAME"><span><img src="data1/tooltips/catdoggrooming960x360.jpg" alt="ADOPTAME"/>3</span></a>
-                    </div></div><div class="ws_script" style="position:absolute;left:-99% "><a href="http://wowslider.com/vi">jquery image slider</a> by WOWSlider.com v8.0</div>
-                <div class="ws_shadow"></div>
-            </div>	
-            <script type="text/javascript" src="engine1/wowslider.js"></script>
-            <script type="text/javascript" src="engine1/script.js"></script>
-        </div>
-        </center>
 
-        <!-- CARRUSEL-->
+        <div class="container">
+            <div class="njksn" style="position: absolute; top: 30px;">
+            </div>
+            <table class=" table table-striped ">
+                <thead>
+                    <tr class="active">
+                        <th>Nombre de la mascota</th>
+                        <th>Dueño de la mascota</th>
+                        <th>Usuario que la adopta</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%
+                        try {
+                            boolean buscar = false;
+                            String nombre_mascota = "";
+                            String dueño_mascota = "";
+                            String usu = "";
+
+                            ConexionDB sqlite = new ConexionDB();
+                            java.sql.Connection cn = sqlite.Conectar();
+                            Statement st = cn.createStatement();
+                            ResultSet rs;
+
+                            String consulta = "Select * from adoptadas";
+
+                            rs = st.executeQuery(consulta);
+
+                            while (rs.next()) {
+                                nombre_mascota = rs.getString(1);
+                                dueño_mascota = rs.getString(2);
+                                usu = rs.getString(3);
+
+                                buscar = true;
+
+                    %>
+
+                    <tr>
+
+                        <td><%= nombre_mascota%></td>
+                        <td><%= dueño_mascota%></td>
+                        <td><%= usu%></td>
+
+                        <td>
+
+
+                            <%
+                                    }
+
+                                    if (buscar) {
+
+                                    } else {
+
+                                    }
+                                    out.close();
+                                } catch (SQLException ex) {
+                                    out.println(ex.toString());
+                                }
+
+                            %>
+
+            </table>
+        </div>
+
+
+
+
+
     </body>
-
 </html>

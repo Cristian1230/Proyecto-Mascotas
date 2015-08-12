@@ -78,21 +78,12 @@
                 </div>
             </div>
         </nav>
-        <button type="button" class="btn btn-info" onclick="alert('<%= confir%>');">Conectar!</button> 
+        <!--<button type="button" class="btn btn-info" onclick="alert('<%= confir%>');">Conectar!</button> -->
 
     <center>
         <p><img src="imagenes/logo9.png"  width="270" height="250" alt="logo8"></p>
-    </center>
-    
-    <div class="img_rotar">
-        <img src="imagenes/pg.jpg"  width="320">
-    </div>
-    <div class="img_ado">
-        <img src="imagenes/ad.jpg"  width="300">
-    </div>
 
-    
-    <center>
+
         <div class="text" style="position:relative;  color: #ffffff; font-family: Comic Sans MS, Arial, MS Sans Serif; width: 40%;">
             <p>
                 Bienvenios a la pagina donde todos amamos nuestros animales
@@ -101,7 +92,18 @@
                 para brindarles un mejor cuidado y asi donarlos a un hogar con amor.
             </p>  
         </div> 
+
     </center>
+
+    <!--<div class="container-fluid" style="">
+        <div class="row">          
+            <div class="col-xs-4  "><img src="imagenes/ad.jpg" style=" " width="300"  ></div>
+            <div class="col-xs-6 col-sm-3"></div>
+            <div class="col-xs-6 "><img src="imagenes/pg.jpg" style=" "  width="320" ></div>          
+        </div>
+    </div>-->
+
+
 
     <center>
         <input onclick="location.href = 'login.jsp'" type="submit" class="btn btn-info" value="Ingresar">

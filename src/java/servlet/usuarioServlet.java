@@ -79,7 +79,9 @@ public class usuarioServlet extends HttpServlet {
             boolean buscar = false;
         
             String usuario = request.getParameter("usuario");
+            String email = request.getParameter("email");
             String password = request.getParameter("password");
+            String rol = "";
             
             
             
@@ -94,7 +96,9 @@ public class usuarioServlet extends HttpServlet {
          
             while (rs.next()) {
                 usuario = rs.getString(1);
-                password = rs.getString(2);
+                email = rs.getString(2);
+                rol = rs.getString(3);
+                password = rs.getString(4);
                 buscar = true;
             }
 
@@ -105,6 +109,8 @@ public class usuarioServlet extends HttpServlet {
                 
          
                 session.setAttribute("usuario", usuario);
+                session.setAttribute("email", email);
+                session.setAttribute("rol", rol);
                 session.setAttribute("password", password);
                 
                 //Mandamos estos atributos a la página bienvenida.jsp

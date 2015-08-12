@@ -28,6 +28,7 @@
     </head>
     <%
         String usuario = (String) session.getAttribute("usuario");
+        String rol = (String) session.getAttribute("rol");
     %>
     <body>
 
@@ -45,119 +46,168 @@
 
                 <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                     
+
                         <li class="dropdown" >
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Cuenta <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="formulario-mascota.jsp">Ingresar mascotas</a></li>
                                 <li><a href="mascotas.jsp">Mascotas</a></li>
+                                <li><a href="mascotas-adoptadas.jsp">Mascotas donadas</a></li>
                                 <li><a href="GenerarPDF">Descargar PDF</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="cerrarsesion.jsp" >Cerrar sesion</a></li>   
                             </ul>
                         </li>
-                           <li><a class="btn btn-link">  <%= usuario%>  </a></li>
+                        <li><a class="btn btn-link">  <%= usuario%>  </a></li>
                     </ul>
                 </div>
             </div>
         </nav>
 
-            <div class="container">
-                <div class="njksn" style="position: absolute; top: 30px;">
-                </div>
-                <table class=" table table-striped ">
-                    <thead>
-                        <tr class="active">
-                            <th>foto</th>
-                            <th>Usuario</th>
-                            <th>Tipo</th>
-                            <th>Nombre</th>
-                            <th>Raza</th>
-                            <th>Edad</th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <%
-                            try {
-                                boolean buscar = false;
-                                String foto = "";
-                                String usu = "";
-                                String tipo = "";
-                                String nombre = "";
-                                String raza = "";
-                                String edad = "";
+        <div class="container">
+            <div class="njksn" style="position: absolute; top: 30px;">
+            </div>
+            <table class=" table table-striped ">
+                <thead>
+                    <tr class="active">
+                        <th>foto</th>
+                        <th>Usuario</th>
+                        <th>Tipo</th>
+                        <th>Nombre</th>
+                        <th>Raza</th>
+                        <th>Edad</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%
+                        try {
+                            boolean buscar = false;
+                            String foto = "";
+                            String usu = "";
+                            String tipo = "";
+                            String nombre = "";
+                            String raza = "";
+                            String edad = "";
 
-                                ConexionDB sqlite = new ConexionDB();
-                                java.sql.Connection cn = sqlite.Conectar();
-                                Statement st = cn.createStatement();
-                                ResultSet rs;
+                            ConexionDB sqlite = new ConexionDB();
+                            java.sql.Connection cn = sqlite.Conectar();
+                            Statement st = cn.createStatement();
+                            ResultSet rs;
 
-                                String consulta = "Select * from vistamascota";
+                            String consulta = "Select * from vistamascota";
 
-                                rs = st.executeQuery(consulta);
+                            rs = st.executeQuery(consulta);
 
-                                while (rs.next()) {
-                                    foto = rs.getString(1);
-                                    usu = rs.getString(2);
-                                    tipo = rs.getString(3);
-                                    nombre = rs.getString(4);
-                                    raza = rs.getString(5);
-                                    edad = rs.getString(6);
-                                    buscar = true;
+                            while (rs.next()) {
+                                foto = rs.getString(1);
+                                usu = rs.getString(2);
+                                tipo = rs.getString(3);
+                                nombre = rs.getString(4);
+                                raza = rs.getString(5);
+                                edad = rs.getString(6);
+                                buscar = true;
 
-                        %>
+                    %>
 
-                        <tr>
-                            <td><img src="<%= foto%>" height="100px;"></td>
-                            <td><%= usu%></td>
-                            <td><%= tipo%></td>
-                            <td><%= nombre%></td>
-                            <td><%= raza%></td>
-                            <td><%= edad%></td>                        
-                            <td>
-                                <form method="post"  action="showMascotas.jsp">
-                                    <input type="hidden" value="<%=usu%>" name="usuario">
-                                    <input type="hidden" value="<%=nombre%>" name="mascota">            
-                                    <input class="btn btn-success" type="submit" value="mostrar">
-                                </form>                               
-                            </td>
-                             <td>
-                                <form method="post" action="editMascotas.jsp">
-                                    <input type="hidden" value="<%=usu%>" name="usuario">
-                                    <input type="hidden" value="<%=nombre%>" name="mascota">            
-                                    <input class="btn btn-warning" type="submit"   value="Editar">
-                                </form>                               
-                            </td>
-                             <td>
-                               
-                                <form  method="post"  action="deleteMascota">
-                                    <input type="hidden" value="<%=usu%>" name="usuario">
-                                    <input type="hidden" value="<%=nombre%>" name="mascota">            
-                                    <input class="btn btn-danger" type="submit" value="Eliminar">
-                                </form>  
-                                  
-                            </td>
-                        </tr>      
-                        <%
+                    <tr>
+                        <td><img src="<%= foto%>" height="100px;"></td>
+                        <td><%= usu%></td>
+                        <td><%= tipo%></td>
+                        <td><%= nombre%></td>
+                        <td><%= raza%></td>
+                        <td><%= edad%></td>
+                        <td>
+                            <%
+                            Statement sta = cn.createStatement();
+                            ResultSet res;
+                            
+                            boolean buscars = false;
+                            
+                            String consultar = "select * from adoptadas where nombre_mascota ='"+ nombre +"'  and dueño_mascota ='"+ usu +"' and usuario ='"+ usuario +"'  ;";
+                            
+                             res = sta.executeQuery(consultar);
+                             while(res.next()){
+                            buscars = true;
+                            }
+                             
+                             if(buscars){
+                                 %><h1>Ya esta postulado</h1>    <%      
+                 
+                                 } else {
+                                 
+                                 if (usuario.equals(usu)){}else{
+                                %> <form method="post"  action="formu-postulacion.jsp">
+                                <input type="hidden" value="<%=usu%>" name="dueno">
+                                <input type="hidden" value="<%=nombre%>" name="mascota">            
+                                <input class="btn btn-info" type="submit" value="postularce">
+                            </form> <%
+                             }
+                             }
+                             res.close();
+                             sta.close();
+                            %>
+                         
+                        </td>
+                        <td>
+                            <form method="post"  action="showMascotas.jsp">
+                                <input type="hidden" value="<%=usu%>" name="usuario">
+                                <input type="hidden" value="<%=nombre%>" name="mascota">            
+                                <input class="btn btn-success" type="submit" value="mostrar">
+                            </form>                               
+                        </td>
+                        <td>
+                            <%
+                                if ((usu.equals(usuario)) || (rol.equals("Admin"))) {
+
+
+                            %>  
+                            <form method="post" action="editMascotas.jsp">
+                                <input type="hidden" value="<%=usu%>" name="usuario">
+                                <input type="hidden" value="<%=nombre%>" name="mascota">            
+                                <input class="btn btn-warning" type="submit" value="Editar">
+                            </form>
+                            <%
                                 }
+                            %>  
+                        </td>
 
-                                if (buscar) {
+                        <td>
+                            <%
+                                if (rol.equals("Admin")) {
 
-                                } else {
 
+                            %> 
+                            <form  method="post"  action="deleteMascota">
+                                <input type="hidden" value="<%=usu%>" name="usuario">
+                                <input type="hidden" value="<%=nombre%>" name="mascota">            
+                                <input class="btn btn-danger" type="submit" value="Eliminar">
+                            </form>  
+                            <%
                                 }
-                                out.close();
-                            } catch (SQLException ex) {
-                                out.println(ex.toString());
+                            %>  
+                        </td>
+                    </tr>      
+                    <%
                             }
 
-                        %>
-                    </tbody>
-                </table>
-            </div>
+                            if (buscar) {
+
+                            } else {
+
+                            }
+                            out.close();
+                        } catch (SQLException ex) {
+                            out.println(ex.toString());
+                        }
+
+                    %>
+                </tbody>
+            </table>
         </div>
+
     </body>
 </html>
